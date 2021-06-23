@@ -1,3 +1,11 @@
-SCRIPT_DIR="$( dirname "$( readlink -f "$0" )" )"
+#!/usr/bin/env zsh
 
+K_ZSH_DOTFILES="${0:h}"
+
+# Get this file's current directory and source Dima's zshrc from there
+SCRIPT_DIR="$( dirname "$( readlink -f "$0" )" )"
 source $SCRIPT_DIR/../dmitmel-dotfiles/zsh/zshrc
+
+for script in functions; do
+  source "$K_ZSH_DOTFILES/$script.zsh"
+done
