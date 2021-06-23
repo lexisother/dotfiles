@@ -4,7 +4,7 @@
 K_ZSH_DOTFILES="$( dirname "$( readlink -f "$0" )" )"
 source $K_ZSH_DOTFILES/../dmitmel-dotfiles/zsh/zshrc
 
-for script in functions; do
+for script in functions plugins; do
   source "$K_ZSH_DOTFILES/$script.zsh"
 done
 
