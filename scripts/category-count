@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Script to fetch commit messages and display the category frequencies.
+# Example:
+#   047c36c [Meta] Added README.
+#   5b16912 [Init] Added scripts.
+#
+# Will output:
+#   Meta: 1
+#   Init: 1
+#
+# Authored by:
+#   Dmytro Meleshko <dmytro.meleshko@gmail.com>
+
+git log --format='%s' | gawk '
+  match($0, /^\s*\[([^\]]+)\]/, groups) {
+    stats[groups[1]] += 1
+  }
+  END {
+    for (key in stats) {
+      print stats[key] "\t" key
+    }
+  }
+' | sort --key=1 --numeric-sort | column -t -s $'\t'
+
+# Hellish abonation {{{
+  # Authored by:
+  #   Mijyuoon: <mijuoon@gmail.com>
+
+  # data=$(git log --oneline | awk -F '[][]' '{for (i=2; i<=NF; i+=2) {printf "%s ", $i}; print ""}')
+  # keys=$(echo "$data" | sort -u | uniq)
+  #
+  # for type in $data; do
+  #   eval "count_$type="'$'"((count_$type+1))"
+  # done
+  #
+  # for type in $keys; do
+  #   echo "$type: $(eval "echo "'$'"count_$type")"
+  # done
+# }}}

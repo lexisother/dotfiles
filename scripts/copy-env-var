@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if variable="$(set -euo pipefail; {
+  awk 'BEGIN{for(v in ENVIRON) print v}'
+} | rofi -dmenu)" && [[ -n $variable ]]; then
+
+  variable="${variable%% *}"
+
+  echo ${!variable} | xclip -sel clip
+fi
