@@ -1,0 +1,3 @@
+[submodule "dmitmel-dotfiles"]
+	path = dmitmel-dotfiles
+	url = https://github.com/dmitmel/dotfiles
