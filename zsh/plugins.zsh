@@ -11,6 +11,11 @@ _plugin keybase-compl 'https://raw.githubusercontent.com/fnoris/keybase-zsh-comp
 
 _plugin gitio 'denysdovhan/gitio-zsh'
 
+_plugin project 'https://git.sr.ht/~keanucode/scripts/blob/master/project/project.zsh' from=url \
+  build="wget -O listbox.zsh https://raw.githubusercontent.com/gko/listbox/master/listbox.zsh" \
+  load="listbox.zsh" \
+  load="project.zsh" \
+
 # from Dima, assuming it's based off of:
 # https://github.com/dmitmel/dotfiles/blob/19d80233265629b33cf57daf05a928239b0c73a8/zsh/plugins.zsh#L17-L25
 if gh_bin="$(command_locate gh)" && [[ -n "$gh_bin" ]]; then
