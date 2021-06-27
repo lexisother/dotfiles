@@ -1,0 +1,1 @@
+Plug 'weirongxu/coc-explorer'
