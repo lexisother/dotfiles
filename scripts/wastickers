@@ -5,7 +5,7 @@ import subprocess
 from glob import glob
 import time
 import pathlib
-from zipfile import ZipFile
+from zipfile import ZipFile, ZIP_STORED
 
 cwd = os.getcwd()
 pathlib.Path(f'./tmp').mkdir(parents=True, exist_ok=True)
@@ -45,10 +45,11 @@ for file in files:
   time.sleep(1)
 
 files = glob('./*')
-with ZipFile(f'{pname}.wastickers', 'w') as zip:
+with ZipFile(f'{pname}.wastickers', 'w', ZIP_STORED) as zip:
   for file in files:
+    zipfilename = file.replace('./', '/')
     with open(file, 'rb') as image_file:
-      zip.writestr(f"/{file}", image_file.read())
+      zip.writestr(f"{zipfilename}", image_file.read())
 
 os.chdir(cwd)
 copyfile(f'./tmp/{pname}.wastickers', f'./{pname}.wastickers')
