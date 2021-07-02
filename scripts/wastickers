@@ -1,54 +1,55 @@
-#!/bin/env zsh
-#
-## Enable MAX STRICTNESS mode
-set -euo pipefail
-setopt nomatch nullglob
+#!/bin/env python
+import os
+from shutil import copyfile, rmtree
+import subprocess
+from glob import glob
+import time
+import pathlib
+from zipfile import ZipFile
 
-# Make checking for command existence easier
-command_exists() { whence -- "$@" &>/dev/null; }
+cwd = os.getcwd()
+pathlib.Path(f'./tmp').mkdir(parents=True, exist_ok=True)
 
-# Create a temporary folder for pack generation which will be
-# deleted at the very end of the process
-cwd=$(pwd)
-mkdir -p $cwd/tmp
+# taken from https://stackoverflow.com/a/34177358
+def is_tool(name: str):
+  from shutil import which
+  return which(name) is not None
 
-# Make sure the webp processing tool is present
-if ! command_exists cwebp; then
-  echo "cwebp not found; Make sure it is installed. Exiting."
-  exit 1
-fi
+if is_tool('cwebp') == False:
+  print('cwebp not found; Make sure it is installed. Exiting.')
+  exit(1)
 
-if ! command_exists zip; then
-  echo "zip not found; Make sure it is installed. Exiting."
-  exit 1
-fi
+if is_tool('zip') == False:
+  print('zip not found; Make sure it is installed. Exiting.')
+  exit(1)
 
-# Read the metadata we will pipe to `author.txt` and `title.txt`
-# Seriously, why are these separate text file? At the very least
-# store the metadata somewhere reasonable such as a JSON file.
-vared -p 'Author: ' -c author
-vared -p 'Pack name: ' -c pname
-echo "$author" > "$cwd/tmp/author.txt"
-echo "$pname" > "$cwd/tmp/title.txt"
+author = input('Author: ')
+pname = input('Pack name: ')
 
-for image in *.png *.jpg *.jpeg; do
-  cp "$image" "$cwd/tmp/"
-done
+with open(f'./tmp/title.txt', 'w') as f:
+  f.write(pname)
+with open(f'./tmp/author.txt', 'w') as f:
+  f.write(author)
 
-cd "$cwd/tmp"
+files = glob(f'./*.png') + glob(f'./*.jpg') + glob(f'./*.jpeg')
+for file in files:
+  copyfile(file, f'./tmp/{file}')
 
-# Every copy of the images we made above will be converted
-# into a webp, then the copy will be deleted.
-# To make sure all images get a separate timestamp, we wait
-# one second for every image.
-for image in *.png *.jpg *.jpeg; do
-  cwebp -q 60 $image -o "$(date +%s).webp" > /dev/null 2>&1
-  rm -rf $image
-  sleep 1
-done
+os.chdir(f'{cwd}/tmp')
 
-# Finally, pack up our stickers and clean up the temp dir
-zip -r -j "$pname.wastickers" "$cwd/tmp";
-mv "$cwd/tmp/$pname.wastickers" "$cwd";
-cd "$cwd";
-rm -rf "$cwd/tmp";
+for file in files:
+  epoch = int(time.time())
+  print(f"Converting {file}...")
+  subprocess.run(['cwebp', '-q', '60', file, '-o', str(epoch) + '.webp'], stdout=open(os.devnull, 'w'), stderr=subprocess.STDOUT)
+  os.remove(f'./{file}')
+  time.sleep(1)
+
+files = glob('./*')
+with ZipFile(f'{pname}.wastickers', 'w') as zip:
+  for file in files:
+    with open(file, 'rb') as image_file:
+      zip.writestr(f"/{file}", image_file.read())
+
+os.chdir(cwd)
+copyfile(f'./tmp/{pname}.wastickers', f'./{pname}.wastickers')
+rmtree('./tmp')
