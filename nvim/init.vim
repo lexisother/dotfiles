@@ -11,9 +11,12 @@ let g:dotfiles_plugin_manager_inhibited_plugins = {
 " Enable the clearly superior mode.
 let g:vim_ide = 1
 
+" Small plugin configs
+let g:dashboard_default_executive ='fzf'
+
 " Source Dima's config
 source <sfile>:p:h/../dmitmel-dotfiles/nvim/init.vim
 
-" Give me that beautiful colorscheme
+" Styling
 set termguicolors
 let airline_powerline_fonts = 1
