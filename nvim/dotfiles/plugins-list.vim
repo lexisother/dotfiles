@@ -1,13 +1,15 @@
+let s:ctx = g:dotfiles_plugins_list_context
+
 " Files {{{
-Plug 'weirongxu/coc-explorer'
+  call s:ctx.use('weirongxu/coc-explorer')
 " }}}
 
 " Language specific {{{
-Plug 'alaviss/nim.nvim'
+  call s:ctx.use('alaviss/nim.nvim')
 " }}}
 
 " Misc {{{
   if has('nvim-0.5.0')
-    Plug 'andweeb/presence.nvim'
+    call s:ctx.use('andweeb/presence.nvim')
   endif
 " }}}
