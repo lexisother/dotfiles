@@ -11,6 +11,7 @@ let s:ctx = g:dotfiles_plugins_list_context
 " }}}
 
 " Misc {{{
+call s:ctx.use('glacambre/firenvim', { 'do': ':call firenvim#install(0)' })
   call s:ctx.use('glepnir/dashboard-nvim')
   if has('nvim-0.5.0')
     call s:ctx.use('andweeb/presence.nvim')
