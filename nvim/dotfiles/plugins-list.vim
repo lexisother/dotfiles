@@ -1,7 +1,7 @@
 let s:ctx = g:dotfiles_plugins_list_context
 
 " Files {{{
-  call s:ctx.use('weirongxu/coc-explorer')
+  call s:ctx.use('preservim/nerdtree')
 " }}}
 
 " Language specific {{{
