@@ -12,11 +12,3 @@ source <sfile>:p:h/../dmitmel-dotfiles/nvim/init.vim
 " Give me that beautiful colorscheme
 set termguicolors
 let airline_powerline_fonts = 1
-
-" Copy to clipboard register and paste from clipboard register {{{
-  " Taken from https://unix.stackexchange.com/a/23437
-  nnoremap <C-y> "+y
-  vnoremap <C-y> "+y
-  nnoremap <C-p> "+gP
-  vnoremap <C-p> "+gP
-" }}}
