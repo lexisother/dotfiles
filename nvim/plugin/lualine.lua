@@ -1,4 +1,3 @@
-lua << EOF
 local dotfiles_gruv = require'lualine.themes.gruvbox'
 local colors = vim.g.dotfiles_colorscheme_base16_colors
 
@@ -25,5 +24,3 @@ require('lualine').setup{
     theme = dotfiles_gruv
   }
 }
-
-EOF
