@@ -9,6 +9,7 @@ let s:ctx = g:dotfiles_plugins_list_context
   call s:ctx.use('preservim/nerdtree')
   call s:ctx.use('kyazdani42/nvim-web-devicons')
   call s:ctx.use('akinsho/nvim-toggleterm.lua')
+  call s:ctx.use('antoyo/vim-licenses')
 " }}}
 
 " Language specific {{{
