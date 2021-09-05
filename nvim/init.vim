@@ -12,6 +12,7 @@ let g:loaded_airline = 1
 
 " Enable the clearly superior mode.
 let g:vim_ide = 1
+let g:dotfiles_build_coc_from_source = 1
 
 " Small plugin configs
 let g:dashboard_default_executive ='fzf'
