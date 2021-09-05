@@ -27,6 +27,16 @@ _plugin project 'https://git.sr.ht/~keanucode/scripts/blob/master/project/projec
     unset gh_comp_path
   fi; unset gh_bin
 
+  if bw_bin="$(command_locate bw)" && [[ -n "$bw_bin" ]]; then
+    bw_comp_path="${ZSH_CACHE_DIR}/site-functions/_bw"
+    if [[ "$bw_bin" -nt "$bw_comp_path" || ! -s "$bw_comp_path" ]]; then
+      _perf_timer_start "generate bw completions"
+      "$bw_bin" completion --shell zsh >| "$bw_comp_path"
+      _perf_timer_stop "generate bw completions"
+    fi
+    unset bw_comp_path
+  fi; unset bw_bin
+
   _plugin nim-compl 'https://raw.githubusercontent.com/nim-lang/Nim/devel/tools/nim.zsh-completion' from=url \
     after_load='plugin-cfg-path fpath prepend ""'
 
