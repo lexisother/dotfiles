@@ -14,6 +14,7 @@ let s:plug = funcref('dotfiles#plugman#register')
 
 " Language specific {{{
   call s:plug('alaviss/nim.nvim')
+  call s:plug('stevearc/vim-arduino')
 " }}}
 
 " Misc {{{

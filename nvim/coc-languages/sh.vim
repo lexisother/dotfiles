@@ -1,2 +1,2 @@
-let g:dotfiles_coc_extensions += ['coc-sh']
-let g:coc_filetypes += ['sh', 'zsh']
+call extend(g:dotfiles_coc_extensions, {'coc-sh': 1})
+call extend(g:dotfiles_coc_filetypes, {'sh': 1, 'zsh': 1})
