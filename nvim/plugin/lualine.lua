@@ -19,6 +19,16 @@ dotfiles_gruv.command.a.bg = colors[16].gui
 dotfiles_gruv.command.c.bg = colors[2].gui
 dotfiles_gruv.command.c.fg = colors[7].gui
 
+dotfiles_gruv.replace.a.bg = colors[9].gui
+dotfiles_gruv.replace.c.bg = colors[2].gui
+
+-- Displays the currently selected Arduino board
+local function showBoard()
+  if vim.g.arduino_board then
+    return '[' .. vim.g.arduino_board .. ']'
+  end
+end
+
 require('lualine').setup{
   options = {
     theme = dotfiles_gruv
