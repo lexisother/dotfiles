@@ -7,12 +7,8 @@ vim.g.loaded_airline = 1
 -- \ 'vim-airline': 1,
 -- \ }
 
--- Enable the clearly superior mode.
-vim.g.dotfiles_build_coc_from_source = 1
-
 -- Small plugin configs
 vim.g.dashboard_default_executive ='fzf'
 
 -- Styling
 vim.o.termguicolors = true
-vim.g.airline_powerline_fonts = 1
