@@ -21,5 +21,7 @@ let s:plug = funcref('dotfiles#plugman#register')
 " Misc {{{
   if has('nvim-0.5.0')
     call s:plug('andweeb/presence.nvim')
+    call s:plug('github/copilot.vim')
   endif
+  call s:plug('wakatime/vim-wakatime')
 " }}}
