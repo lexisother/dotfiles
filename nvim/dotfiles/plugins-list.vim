@@ -5,6 +5,12 @@ let s:plug = funcref('dotfiles#plugman#register')
   call s:plug('hoob3rt/lualine.nvim')
 " }}}
 
+" Navigation {{{
+  call s:plug('nvim-telescope/telescope.nvim') " dependencies {{{
+    call s:plug('nvim-lua/plenary.nvim')
+  " }}}
+" }}}
+
 " Files {{{
   call s:plug('preservim/nerdtree')
   call s:plug('kyazdani42/nvim-web-devicons')
@@ -25,11 +31,9 @@ let s:plug = funcref('dotfiles#plugman#register')
 " }}}
 
 " Misc {{{
-  if has('nvim-0.5.0')
-    call s:plug('andweeb/presence.nvim')
-  endif
+  call s:plug('andweeb/presence.nvim')
+  call s:plug('wakatime/vim-wakatime')
   if has('nvim-0.6.0')
     call s:plug('github/copilot.vim')
   endif
-  call s:plug('wakatime/vim-wakatime')
 " }}}
