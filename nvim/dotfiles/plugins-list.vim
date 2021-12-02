@@ -31,6 +31,7 @@ let s:plug = funcref('dotfiles#plugman#register')
 " }}}
 
 " Misc {{{
+  call s:plug('junegunn/vader.vim')
   call s:plug('andweeb/presence.nvim')
   call s:plug('wakatime/vim-wakatime')
   if has('nvim-0.6.0')
