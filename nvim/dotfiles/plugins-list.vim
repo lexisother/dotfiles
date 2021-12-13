@@ -22,6 +22,9 @@ let s:plug = funcref('dotfiles#plugman#register')
   call s:plug('alaviss/nim.nvim')
   call s:plug('stevearc/vim-arduino')
   call s:plug('xiyaowong/coc-nvim-lua')
+  call s:plug('nvim-neorg/neorg', { 'branch': 'unstable' }) " dependencies {{{
+    call s:plug('nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' })
+  " }}}
   call s:plug('noahfrederick/vim-laravel') " dependencies {{{
     call s:plug('noahfrederick/vim-composer')
     call s:plug('tpope/vim-projectionist')
