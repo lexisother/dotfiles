@@ -6,6 +6,8 @@ const argparse = require('argparse');
 const markdownIt = require('markdown-it');
 const markdownItTaskCheckbox = require('markdown-it-task-checkbox');
 const markdownItEmoji = require('markdown-it-emoji');
+const markdownItFootnote = require('markdown-it-footnote');
+const markdownItAdmonition = require('markdown-it-admonition');
 const markdownItHeaderAnchors = require('./markdown-it-header-anchors');
 const Prism = require('prismjs/components/prism-core');
 const loadPrismLanguages = require('prismjs/components/');
@@ -66,6 +68,8 @@ let md = markdownIt({
 md.use(markdownItTaskCheckbox);
 md.use(markdownItEmoji, { shortcuts: {} });
 md.use(markdownItHeaderAnchors);
+md.use(markdownItFootnote);
+md.use(markdownItAdmonition);
 
 let markdownDocument = fs.readFileSync(args.INPUT_FILE || 0, args.input_encoding);
 let renderedMarkdown = md.render(markdownDocument);
