@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "scripts": {
+    "theme:build": "sass --no-source-map --style=compressed themes-src/:themes-out/",
+    "theme:watch": "sass --no-source-map --style=compressed --watch themes-src/:themes-out/"
+  },
+  "dependencies": {
+    "argparse": "^2.0.1",
+    "github-markdown-css": "^4.0.0",
+    "github-slugger": "^1.4.0",
+    "markdown-it": "^12.2.0",
+    "markdown-it-admonition": "^1.0.4",
+    "markdown-it-emoji": "^2.0.0",
+    "markdown-it-footnote": "^3.0.3",
+    "markdown-it-task-checkbox": "^1.0.6",
+    "prismjs": "^1.25.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-dmitmel": "dmitmel/eslint-config-dmitmel",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "normalize.css": "^8.0.1",
+    "prettier": "^2.4.1",
+    "sass": "^1.42.0"
+  }
+}
