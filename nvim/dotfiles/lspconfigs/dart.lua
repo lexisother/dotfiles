@@ -1,5 +1,4 @@
-local lspconfig = require('lspconfig')
+local ignition = require("dotfiles.lsp.ignition")
+local dartls_config = require("lspconfig.server_configurations.dartls").default_config
 
-local bin_name = 'dart'
-
-lspconfig['dartls'].setup({})
+ignition.setup_config("dartls", dartls_config)
