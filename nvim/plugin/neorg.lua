@@ -1,5 +1,7 @@
 local neorg = require('neorg')
-local cmp = require('cmp')
+
+local ok, cmp = pcall(require, 'cmp')
+if not ok then return end;
 
 local cmp_config = cmp.get_config()
 table.insert(cmp_config.sources, { name = "neorg" })
