@@ -4,4 +4,6 @@ endfunction
 
 augroup dotfilesftdetect
   autocmd BufWritePost PKGBUILD :call s:genSrcInfo()
+
+  autocmd BufNewFile,BufRead *.dream setf dream
 augroup END
