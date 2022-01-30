@@ -1,4 +1,7 @@
-local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+local ok, parser_configs = pcall(require, 'nvim-treesitter.parsers')
+if not ok then return end
+
+local parser_configs = parser_configs.get_parser_configs()
 
 parser_configs.norg = {
     install_info = {
