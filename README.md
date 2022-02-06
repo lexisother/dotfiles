@@ -16,3 +16,10 @@ If you are uncertain about what any of these things do, I recommend you:
 - Do not use them.
 - Read the source code, and, additionally,
   - Read the source code of dmitmel's dotfiles.
+
+## Configuration
+
+Some minor configuration is offered in scripts:
+
+- `$DOTFILES_BOT_TOKEN`: Environment variable that should house the Discord bot token used in scripts.
+- `$DOTFILES_WEBHOOK_URL`: Environment variable that should house the Discord webhook URL used in `tophook`.
