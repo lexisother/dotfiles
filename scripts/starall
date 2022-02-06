@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+ORG="$1"
+USRNAME="$2"
+TOKEN="$3"
+
+for url in $(curl -Lf "https://api.github.com/orgs/$ORG/repos?per_page=1000" | jq -r '.[].html_url' | sort -u); do
+  read repo <<< $(awk -F, -v url="$url" '{split($url,a,"/"); print a[5]}' <<<$url)
+  echo "$ORG/$repo"
+  curl -X PUT -H "Accept: application/vnd.github.v3+json" -u $USRNAME:$TOKEN "https://api.github.com/user/starred/$ORG/$repo"
+done

@@ -1,0 +1,43 @@
+#!/usr/bin/env zsh
+# CPU load
+cpustat=$(top -bcn1 -w512 -o %CPU)
+cpuusage=$(echo $cpustat | awk 'BEGIN {FS = "[,:]\\W+"} NR==3 {i=index($5," "); print 100-substr($5,0,i-1)}')
+highestcpu=$(echo $cpustat | awk 'NR==8')
+
+highestcpu_ram=$(echo $highestcpu | awk '{mem=$10; print mem}')
+highestcpu_cpu=$(echo $highestcpu | awk '{cpu=$9; print cpu}')
+highestcpu_proc=$(echo $highestcpu | awk '{time=$11; print substr($0, index($0,time)+length(time)+1)}')
+
+# RAM load
+memusage=$(free | grep Mem | awk '{print $3/$2 * 100.0}')
+highestmem=$(ps -eo '%mem %cpu cmd' --sort='-%mem' | awk 'NR==2')
+
+highestmem_ram=$(echo $highestmem | awk '{print $1}')
+highestmem_cpu=$(echo $highestmem | awk '{print $2}')
+highestmem_proc=$(echo $highestmem | awk '{print substr($0, index($0, $3))}')
+
+# Reporting
+webhook="$DOTFILES_WEBHOOK_URL"
+
+ping=""
+for id in "465702500146610176" "186496078273708033"; do
+  ping="$ping <@$id>"
+done
+
+# Usage under 70% is acceptable. If over 70% for long, then something is wrong.
+if (( $cpuusage > 70 )); then
+  cpu1=$(printf "%-25s %s%%" "Total CPU load"         "$cpuusage")
+  cpu2=$(printf "%-25s %s%%" "Max CPU process (RAM%)" "$highestcpu_ram")
+  cpu3=$(printf "%-25s %s%%" "Max CPU process (CPU%)" "$highestcpu_cpu")
+  cpu4=$(printf "%-25s %s"   "Max CPU process"        "$highestcpu_proc")
+  curl -H "Content-Type: application/json" -d '{"username": "CPU Alert", "content": "'"$ping"'\n```\n'"$cpu1"'\n'"$cpu2"'\n'"$cpu3"'\n'"$cpu4"'\n```"}' $webhook
+fi
+
+# Usage under 70% is acceptable. If over 70% for long, then something is wrong.
+if (( $memusage > 70 )); then
+  mem1=$(printf "%-25s %s%%" "Total RAM load"         "$memusage")
+  mem2=$(printf "%-25s %s%%" "Max RAM process (RAM%)" "$highestmem_ram")
+  mem3=$(printf "%-25s %s%%" "Max RAM process (CPU%)" "$highestmem_cpu")
+  mem4=$(printf "%-25s %s"   "Max RAM process"        "$highestmem_proc")
+  curl -H "Content-Type: application/json" -d '{"username": "RAM Alert", "content": "'"$ping"'\n```\n'"$mem1"'\n'"$mem2"'\n'"$mem3"'\n'"$mem4"'\n```"}' $webhook
+fi

@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+# Script used for keeping the profile pictures up to date on https://nova-vps.ml
+
+API_BASE="https://discord.com/api/v9"
+USERS=( "465702500146610176" "186496078273708033" "717352467280691331" )
+OUTPUT="$HOME/public_web/static/img/"
+
+for user in "${USERS[@]}"; do
+  data=$(curl -H "Authorization: Bot $DOTFILES_BOT_TOKEN" "$API_BASE/users/$user")
+  avihash=$(jq -r '.avatar' <<< "$data")
+  username=$(jq -r '.username' <<< "$data")
+  wget "https://cdn.discordapp.com/avatars/$user/$avihash.png?size=2048" -O "$OUTPUT/$username.png"
+done
