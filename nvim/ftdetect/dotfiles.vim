@@ -6,4 +6,5 @@ augroup dotfilesftdetect
   autocmd BufWritePost PKGBUILD :call s:genSrcInfo()
 
   autocmd BufNewFile,BufRead *.dream setf dream
+  autocmd BufNewFile,BufRead *.newlisp setf newlisp
 augroup END

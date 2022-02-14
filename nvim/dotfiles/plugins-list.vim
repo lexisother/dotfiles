@@ -23,6 +23,8 @@ let s:plug = funcref('dotfiles#plugman#register')
   call s:plug('stevearc/vim-arduino')
   call s:plug('xiyaowong/coc-nvim-lua')
   call s:plug('luke-gru/vim-riml')
+  call s:plug('bhurlow/vim-parinfer')
+  call s:plug('vim-scripts/newlisp')
   if has('unix')
     call s:plug('nvim-neorg/neorg', { 'branch': 'unstable' }) " dependencies {{{
       call s:plug('nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' })
