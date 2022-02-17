@@ -7,4 +7,5 @@ augroup dotfilesftdetect
 
   autocmd BufNewFile,BufRead *.dream setf dream
   autocmd BufNewFile,BufRead *.newlisp setf newlisp
+  autocmd BufNewFile,BufRead *.mdy setf melody
 augroup END
