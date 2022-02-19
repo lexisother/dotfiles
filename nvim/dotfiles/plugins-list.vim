@@ -25,6 +25,7 @@ let s:plug = funcref('dotfiles#plugman#register')
   call s:plug('luke-gru/vim-riml')
   call s:plug('bhurlow/vim-parinfer')
   call s:plug('vim-scripts/newlisp')
+  call s:plug('captbaritone/better-indent-support-for-php-with-html')
   if has('unix')
     call s:plug('nvim-neorg/neorg', { 'branch': 'unstable' }) " dependencies {{{
       call s:plug('nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' })
