@@ -1,5 +1,10 @@
 let s:plug = funcref('dotfiles#plugman#register')
 
+" Programming {{{
+  call s:plug('nvim-treesitter/nvim-treesitter')
+  call s:plug('nvim-treesitter/playground')
+" }}}
+
 " UI {{{
   call s:plug('romgrk/barbar.nvim')
   call s:plug('hoob3rt/lualine.nvim')
