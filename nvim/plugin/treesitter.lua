@@ -12,6 +12,12 @@ parser_configs.norg = {
 }
 
 require('nvim-treesitter.configs').setup {
+  -- Nothing here seems to work
+  -- highlight = {
+  --  enable = true,
+  --  additional_vim_regex_highlighting = false,
+  -- },
+
   ensure_installed = { "norg" },
   playground = {
     enable = true,

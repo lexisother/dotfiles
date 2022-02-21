@@ -1,2 +1,3 @@
-local hl_map = vim.treesitter.highlighter.hl_map
-hl_map['clisp.function'] = "MyGroup"
+require "nvim-treesitter.highlight"
+local hlmap = vim.treesitter.highlighter.hl_map
+hlmap["clisp.function"] = "RedrawDebugRecompose"
