@@ -14,7 +14,7 @@ else
 endif
 
 " Arrow key fix kanged from <https://vim.fandom.com/wiki/Fix_arrow_keys_that_display_A_B_C_D_on_remote_shell#Solution_21> {{{
-  if g:HELP_MY_ARROW_KEYS_ARE_BROKEN
+  if exists("g:HELP_MY_ARROW_KEYS_ARE_BROKEN")
     " the following simply creates an ambiguous mapping so vim fully
     " processes the escape sequence for terminal keys, see 'ttimeout' for a
     " rough explanation, this just forces it to work
