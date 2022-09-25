@@ -6,6 +6,9 @@ nnoremap <C-t> :NERDTreeToggle<CR>
     return !col || getline('.')[col - 1]  =~ '\s'
   endfunction
 
+  nmap <silent> <F3>    <Plug>(coc-codeaction-line)
+  xmap <silent> <F3>    <Plug>(coc-codeaction-selected)
+
   inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
   inoremap <silent><expr> <TAB>
