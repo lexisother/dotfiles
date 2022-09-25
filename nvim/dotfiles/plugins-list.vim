@@ -34,6 +34,7 @@ let s:plug = funcref('dotfiles#plugman#register')
       " }}}
     endif
   endif
+  call s:plug('lervag/vimtex')
   call s:plug('stevearc/vim-arduino')
   call s:plug('luke-gru/vim-riml')
   call s:plug('bhurlow/vim-parinfer')
