@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
+# Options for Dima's config
 DOTFILES_DISABLE_WELCOME=1
+DOTFILES_SYNC_LAST_WORKING_DIR=1
 
 # Get this file's current directory and source Dima's zshrc from there
 K_ZSH_DOTFILES="$( dirname "$( readlink -f "$0" )" )"
