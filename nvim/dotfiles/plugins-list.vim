@@ -37,7 +37,7 @@ let s:plug = funcref('dotfiles#plugman#register')
   call s:plug('lervag/vimtex')
   call s:plug('stevearc/vim-arduino')
   call s:plug('luke-gru/vim-riml')
-  call s:plug('bhurlow/vim-parinfer')
+  call s:plug('guns/vim-sexp')
   call s:plug('vim-scripts/newlisp')
   call s:plug('noahfrederick/vim-laravel') " dependencies {{{
     call s:plug('noahfrederick/vim-composer')
