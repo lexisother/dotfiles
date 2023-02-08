@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
 _plugin() {
-  _perf_timer_start "plugin $1"
+  [ -z "$DOTFILES_LOAD_SILENT" ] && _perf_timer_start "plugin $1"
   plugin "$@"
-  _perf_timer_stop "plugin $1"
+  [ -z "$DOTFILES_LOAD_SILENT" ] && _perf_timer_stop  "plugin $1"
 }
 
 _plugin gitio 'denysdovhan/gitio-zsh'

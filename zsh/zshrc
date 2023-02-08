@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+DOTFILES_DISABLE_WELCOME=1
+
 # Get this file's current directory and source Dima's zshrc from there
 K_ZSH_DOTFILES="$( dirname "$( readlink -f "$0" )" )"
 source $K_ZSH_DOTFILES/../dmitmel-dotfiles/zsh/zshrc
@@ -12,4 +14,8 @@ if [[ -d "$K_ZSH_DOTFILES/custom" ]]; then
   for script in $K_ZSH_DOTFILES/custom/*.zsh; do
     source "$script"
   done
+fi
+
+if [[ -z "$KDOTFILES_DISABLE_WELCOME" && -z "$POETRY_ACTIVE" ]]; then
+  welcome
 fi
