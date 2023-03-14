@@ -29,7 +29,7 @@ let s:plug = funcref('dotfiles#plugman#register')
     call s:plug('xiyaowong/coc-nvim-lua')
     call s:plug('alaviss/nim.nvim')
     if has('unix')
-      call s:plug('nvim-neorg/neorg', { 'branch': 'unstable' }) " dependencies {{{
+      call s:plug('nvim-neorg/neorg') " dependencies {{{
         call s:plug('nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' })
       " }}}
     endif
