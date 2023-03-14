@@ -22,6 +22,7 @@
     jq
     mosh
     neovim
+    nixpkgs-fmt
     nodePackages.pnpm
     nodePackages.prettier
     nodePackages.yarn
@@ -32,10 +33,10 @@
     rectangle
     ripgrep
     ruby_3_1
-    tailscale
     shards
     slack
     slack-term
+    tailscale
     vim
     wget
     zig
@@ -43,18 +44,20 @@
 
   homebrew = {
     enable = true;
+    # If only this didn't break.
     onActivation.cleanup = "zap";
 
     taps = [
-      "homebrew/cask"
       "drud/ddev"
+      "homebrew/cask"
     ];
 
+    # Please do not the brew.
     brews = [
       "composer"
       "ddev"
-      "sdl2"
       "pkg-config"
+      "sdl2"
     ];
 
     casks = [
@@ -94,6 +97,7 @@
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
+  # I wish I had access to inputs.
   programs.zsh = {
     enable = true;
     promptInit = "
@@ -104,6 +108,8 @@
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
+
+  # Absolutely proprietary.
   nixpkgs.config.allowUnfree = true;
 }
 
