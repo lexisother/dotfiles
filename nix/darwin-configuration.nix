@@ -8,21 +8,27 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    act
     bat
     bitwarden-cli
     crystal
     delta
     deno
+    dotnet-sdk
     exa
     ffmpeg
     fzf
     git
     gnupg
     go
+    jetbrains.phpstorm
+    jetbrains.rider
     jq
+    libtool
     mosh
     neovim
     nixpkgs-fmt
+    nodePackages.http-server
     nodePackages.pnpm
     nodePackages.prettier
     nodePackages.yarn
@@ -63,11 +69,14 @@
     casks = [
       "alt-tab"
       "amethyst"
+      "audacity"
+      "db-browser-for-sqlite"
       "discord"
       "docker"
       "fig"
       "firefox"
       "google-chrome"
+      "itch"
       "iterm2"
       "nss"
       "obs"
