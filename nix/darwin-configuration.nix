@@ -46,6 +46,16 @@
     vim
     wget
     zig
+
+    # Fyra vala crap
+    gtk4
+    gobject-introspection
+    glib
+    glib-networking
+    libgee
+    meson
+    ninja
+    vala
   ];
 
   homebrew = {
