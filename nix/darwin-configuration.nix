@@ -8,50 +8,59 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    # System tools
+    libtool
+    pcre
+    pkg-config
+
+    # CLI tools
     act
     bat
     bitwarden-cli
-    crystal
     delta
-    deno
-    dotnet-sdk
     exa
     ffmpeg
     fzf
     git
+    gitui
     gnupg
-    go
-    jetbrains.phpstorm
-    jetbrains.rider
     jq
-    libtool
     mosh
     neovim
     nixpkgs-fmt
+    ripgrep
+    vim
+    wget
+
+    # Programs
+    jetbrains.phpstorm
+    jetbrains.rider
+    rectangle
+    slack
+    tailscale
+
+    # Programming languages
+    crystal
+    deno
+    dotnet-sdk
+    go
+    nodejs-19_x
+    ruby_3_1
+    shards
+    zig
+
+    # Libraries
     nodePackages.http-server
     nodePackages.pnpm
     nodePackages.prettier
     nodePackages.yarn
-    nodejs-19_x
     openssl
-    pcre
-    pkg-config
-    rectangle
-    ripgrep
-    ruby_3_1
-    shards
-    slack
-    slack-term
-    tailscale
-    vim
-    wget
-    zig
 
     # Fyra vala crap
-    gtk4
-    gobject-introspection
     glib
     glib-networking
+    gobject-introspection
+    gtk4
     libgee
     meson
     ninja
@@ -80,6 +89,7 @@
       "alt-tab"
       "amethyst"
       "audacity"
+      "background-music"
       "db-browser-for-sqlite"
       "discord"
       "docker"
