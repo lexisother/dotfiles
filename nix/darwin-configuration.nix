@@ -25,6 +25,7 @@
     exa
     ffmpeg
     fzf
+    gh
     git
     gitui
     gnupg
@@ -39,6 +40,7 @@
     wget
 
     # Programs
+    jetbrains.idea-ultimate
     jetbrains.phpstorm
     jetbrains.rider
     rectangle
