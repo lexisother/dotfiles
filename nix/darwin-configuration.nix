@@ -84,6 +84,7 @@
     brews = [
       "composer"
       "ddev"
+      "mkcert"
       "pkg-config"
       "sdl2"
     ];
@@ -101,7 +102,6 @@
       "google-chrome"
       "itch"
       "iterm2"
-      "nss"
       "obs"
       "raycast"
       "sequel-ace"
