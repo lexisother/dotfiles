@@ -20,6 +20,7 @@
     act
     bat
     bitwarden-cli
+    cloudflared
     delta
     exa
     ffmpeg
@@ -28,10 +29,12 @@
     gitui
     gnupg
     jq
+    kubectl
     mosh
     neovim
     nixpkgs-fmt
     ripgrep
+    sops
     vim
     wget
 
