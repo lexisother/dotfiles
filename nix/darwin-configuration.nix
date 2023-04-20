@@ -12,6 +12,9 @@
     libtool
     pcre
     pkg-config
+    patchelf
+    gnutls
+    gsasl
 
     # CLI tools
     act
