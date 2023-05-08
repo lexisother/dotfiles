@@ -52,6 +52,7 @@
     deno
     dotnet-sdk
     go
+    jdk
     nodejs-19_x
     ruby_3_1
     shards
@@ -98,6 +99,7 @@
     casks = [
       "alt-tab"
       "amethyst"
+      "android-studio"
       "audacity"
       "background-music"
       "db-browser-for-sqlite"
