@@ -130,10 +130,8 @@
     package = pkgs.nix;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
+      build-users-group = "nixbld";
     };
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
     gc = {
       automatic = true;
       options = "--delete-older-than 8d";
