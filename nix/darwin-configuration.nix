@@ -83,6 +83,7 @@
     taps = [
       "drud/ddev"
       "homebrew/cask"
+      "homebrew/cask-versions"
     ];
 
     # Please do not the brew.
@@ -101,6 +102,7 @@
       "background-music"
       "db-browser-for-sqlite"
       "discord"
+      "discord-ptb"
       "docker"
       "fig"
       "firefox"
