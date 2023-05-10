@@ -27,6 +27,7 @@
     fzf
     gh
     git
+    git-crypt
     gitui
     gnupg
     jq
