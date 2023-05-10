@@ -53,6 +53,7 @@
     dotnet-sdk
     go
     jdk
+    nil
     nodejs-19_x
     ruby_3_1
     shards
