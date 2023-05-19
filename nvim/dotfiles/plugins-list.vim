@@ -46,6 +46,12 @@ let s:plug = funcref('dotfiles#plugman#register')
   " }}}
 " }}}
 
+" coc {{{
+  if g:dotfiles_build_coc_from_source
+    call s:plug('https://github.com/UltiRequiem/coc-cl', { 'do': 'yarn install --frozen-lockfile && yarn build' })
+  endif
+" }}}
+
 " Misc {{{
   if has('nvim')
     call s:plug('andweeb/presence.nvim')
