@@ -40,6 +40,10 @@
     vim
     wget
 
+    # Charm tools
+    skate
+    soft-serve
+
     # Programs
     jetbrains.idea-ultimate
     jetbrains.phpstorm
