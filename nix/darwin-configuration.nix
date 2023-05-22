@@ -103,6 +103,7 @@
     ];
 
     casks = [
+      "1password"
       "alt-tab"
       "amethyst"
       "android-studio"
