@@ -14,5 +14,5 @@
     },
     "typeRoots": ["/Users/alyxia/Documents/gitrepos/hh3/types"]
   },
-  "include": ["./ext/**/*"]
+  "include": ["./ext/**/*", "./global.d.ts"]
 }
