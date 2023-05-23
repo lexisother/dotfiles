@@ -1,7 +1,24 @@
 {
   "name": "-",
   "description": "blblbl, blbl, wawawawa",
+  "engines": {
+    "node": ">=19.9.0"
+  },
+  "scripts": {
+    "lint": "eslint ext --ext .js,.jsx,.ts,.tsx --ignore-path ../../../.gitignore",
+    "format": "prettier --write **/*"
+  },
   "dependencies": {
     "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "^8.41.0",
+    "eslint-config-dmitmel": "github:dmitmel/eslint-config-dmitmel",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.8"
   }
 }
