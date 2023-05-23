@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noEmit": true,
+    "jsx": "react",
+    "paths": {
+      "@hh/*": ["/Users/alyxia/Documents/gitrepos/hh3/types/*"],
+      "@hh/ext/*": ["/Users/alyxia/Documents/gitrepos/hh3/ext/*"]
+    },
+    "typeRoots": ["/Users/alyxia/Documents/gitrepos/hh3/types"]
+  },
+  "include": ["./ext/**/*"]
+}

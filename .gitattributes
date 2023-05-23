@@ -1,3 +1,3 @@
 /script-resources/markdown2htmldoc/themes-out/**/* linguist-generated
 common/hellcooling/config/ext/** filter=git-crypt diff=git-crypt
-common/hellcooling/config/*.json filter=git-crypt diff=git-crypt
+common/hellcooling/config/discord*.json filter=git-crypt diff=git-crypt
