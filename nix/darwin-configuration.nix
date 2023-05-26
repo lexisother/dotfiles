@@ -59,7 +59,7 @@
     go
     jdk
     nil
-    nodejs-19_x
+    nodejs_20
     ruby_3_1
     sbcl
     shards
