@@ -105,6 +105,7 @@
 
     casks = [
       "1password"
+      "1password-cli"
       "alt-tab"
       "amethyst"
       "android-studio"
