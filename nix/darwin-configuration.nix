@@ -61,6 +61,7 @@
     nil
     nodejs-19_x
     ruby_3_1
+    sbcl
     shards
     zig
 
@@ -113,6 +114,7 @@
       "discord"
       "discord-ptb"
       "docker"
+      "emacs"
       "fig"
       "firefox"
       "google-chrome"
