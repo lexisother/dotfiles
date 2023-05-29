@@ -1,4 +1,10 @@
-let g:vim_mediawiki_site = 'wiki.c2dl.info'
+let s:WIKI_URL = 'wiki.c2dl.info'
+
+let g:mediawiki_editor_url = s:WIKI_URL
+let g:mediawiki_editor_path = "/w/"
+let g:mediawiki_editor_username = "lexisother"
+
+let g:vim_mediawiki_site = s:WIKI_URL
 if has('macunix')
   let g:vim_mediawiki_browser_command = 'open \r'
 else
