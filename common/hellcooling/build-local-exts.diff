@@ -1,0 +1,53 @@
+diff --git a/web/buildExtension.js b/web/buildExtension.js
+index 206408c..4984ab2 100644
+--- a/web/buildExtension.js
++++ b/web/buildExtension.js
+@@ -1,7 +1,37 @@
++const fs = require("fs");
++const os = require("os");
++const path = require("path");
+ const webpack = require("webpack");
+ process.env.BUILD_TYPE = "extension";
+ const config = require("./webpack.config.js");
+ 
++const PATH_TO_EXTS = path.join(
++  os.homedir(),
++  "Library/ApplicationSupport/hh3/ext"
++);
++const HH_EXT_DIR = path.join(__dirname, "../ext");
++let exts = fs.readdirSync(PATH_TO_EXTS);
++exts = exts.filter((e) => e !== ".git");
++
++function deleteF(path) {
++  const isDir = fs.lstatSync(path).isDirectory();
++  if (isDir) fs.rmSync(path, {recursive: true});
++  else fs.unlinkSync(path);
++}
++
++for (const ext of exts) {
++  if (fs.existsSync(path.join(HH_EXT_DIR, ext)))
++    deleteF(path.join(HH_EXT_DIR, ext));
++
++  const source = path.join(PATH_TO_EXTS, ext);
++  const dest = path.join(HH_EXT_DIR, ext);
++
++  fs.cpSync(source, dest, {
++    recursive: true,
++  });
++  console.log(`${source} -> ${dest}`);
++}
++
+ webpack.webpack(config, (err, stats) => {
+   if (!stats?.compilation) {
+     console.log(err);
+@@ -21,5 +51,10 @@ webpack.webpack(config, (err, stats) => {
+         })
+       );
+     }
++    for (let ext of exts) {
++      ext = path.join(HH_EXT_DIR, ext);
++      deleteF(ext);
++      console.log(`✕ ${ext}`);
++    }
+   }
+ });
