@@ -37,6 +37,15 @@ _plugin project 'https://git.sr.ht/~keanucode/scripts/blob/master/project/projec
     unset bw_comp_path
   fi; unset bw_bin
 
+  if kctl_bin="$(command_locate kubectl)" && [[ -n "$kctl_bin" ]]; then
+    kctl_comp_path="${ZSH_CACHE_DIR}/site-functions/_kubectl"
+    if [[ "$kctl_bin" -nt "$kctl_comp_path" || ! -s "$kctl_comp_path" ]]; then
+      _perf_timer_start "generate kubectl completions"
+      "$kctl_bin" completion zsh >| "$kctl_comp_path"
+      _perf_timer_stop "generate kubectl completions"
+    fi
+  fi; unset kctl_comp_path
+
   _plugin nim-compl 'https://raw.githubusercontent.com/nim-lang/Nim/devel/tools/nim.zsh-completion' from=url \
     after_load='plugin-cfg-path fpath prepend ""'
 
