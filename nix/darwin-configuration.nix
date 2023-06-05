@@ -32,6 +32,7 @@
     gnupg
     jq
     kubectl
+    kubelogin-oidc
     mosh
     neovim
     nixpkgs-fmt
