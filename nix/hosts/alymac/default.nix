@@ -2,21 +2,78 @@
 
 let
   packageSets = with pkgs; rec {
-    base = [
-      jq
-      ripgrep
+    system = [
+      gnutls
+      gsasl
+      libtool
+      patchelf
+      pcre
+      pinentry
+      pkg-config
     ];
-    languages = [];
-    tooling = [];
-    multimedia = [];
 
-    everything = base ++ languages ++ tooling ++ multimedia;
+    base = [
+      act
+      bat
+      bitwarden-cli
+      cloudflared
+      delta
+      exa
+      ffmpeg
+      fzf
+      gh
+      # git # already managed by home-manager
+      git-crypt
+      gitui
+      gnupg
+      jq
+      kubectl
+      kubelogin-oidc
+      mosh
+      neovim
+      nixpkgs-fmt
+      ripgrep
+      sops
+      vim
+      wget
+    ];
+
+    languages = [
+      crystal
+      deno
+      dotnet-sdk
+      go
+      jdk
+      nil
+      nodejs_20
+      ruby_3_1
+      sbcl
+      shards
+      zig
+    ];
+
+    programs = [
+      jetbrains.idea-ultimate
+      jetbrains.phpstorm
+      jetbrains.rider
+      rectangle
+      slack
+      tailscale
+    ];
+
+    multimedia = [
+      ffmpeg
+    ];
+
+    everything = system ++ base ++ languages ++ programs ++ multimedia;
   };
 
 in
 {
   imports = [];
 
+  # Absolutely proprietary.
+  nixpkgs.config.allowUnfree = true;
 
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
@@ -78,10 +135,48 @@ in
     enable = true;
     onActivation = {
       autoUpdate = true;
+      cleanup = "zap";
       upgrade = true;
     };
+
+    taps = [
+      "drud/ddev"
+      "homebrew/cask"
+      "homebrew/cask-versions"
+    ];
+
+    # Please do not the brew.
+    brews = [
+      "composer"
+      "croc"
+      "ddev"
+      "mkcert"
+      "pkg-config"
+      "sdl2"
+    ];
+
     casks = [
+      "1password"
+      "1password-cli"
+      "alt-tab"
+      "android-studio"
+      "audacity"
+      "background-music"
+      "db-browser-for-sqlite"
       "discord"
+      "discord-ptb"
+      "docker"
+      "firefox"
+      "google-chrome"
+      "itch"
+      "iterm2"
+      "obs"
+      "raycast"
+      "sequel-ace"
+      "shottr"
+      "spotify"
+      "thunderbird"
+      "visual-studio-code"
     ];
   };
 }
