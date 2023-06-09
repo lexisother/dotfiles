@@ -20,6 +20,24 @@
         "type": "github"
       }
     },
+    "dotfiles": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686302382,
+        "narHash": "sha256-BKJnBMPuFylshzuY8EQoyP6xuAGcxCauJspl1cVkg/A=",
+        "ref": "refs/heads/master",
+        "rev": "4ea89899caf8a0fd87cdfdc4601f7e79fc666c37",
+        "revCount": 360,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/keanuplayz/dotfiles"
+      },
+      "original": {
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/keanuplayz/dotfiles"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -27,11 +45,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686265152,
-        "narHash": "sha256-ArdPMx2G2rWlnGlqfIV+efTKXcN7F3W0/b5XKYq7n8E=",
+        "lastModified": 1686305101,
+        "narHash": "sha256-xCgeI+uTKay3Ab3tMdP9m9flIJbFkRMKwRAmg5PQhJQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2bbfc3a78afb4ea60345a5660d8d4173da66c884",
+        "rev": "1e5d741ea3f3290d7ac06a02ded24bfdc7aadb37",
         "type": "github"
       },
       "original": {
@@ -42,11 +60,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1686087926,
-        "narHash": "sha256-mXzfJpCCT7Vup2sC3rZPB/AbEW+uBjwT027XWm7R6rA=",
+        "lastModified": 1686265002,
+        "narHash": "sha256-JcRprVevSl5JNCp2oHy8fd3zvTsnuQgVCay0/sP/1GE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9ea6dd599d2781168e36486745b5d17e826ab015",
+        "rev": "9e447f1c786f9d1375c3c8b2bff2c9400c63a34e",
         "type": "github"
       },
       "original": {
@@ -59,6 +77,7 @@
     "root": {
       "inputs": {
         "darwin": "darwin",
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

@@ -8,12 +8,19 @@
       # nix will normally use the nixpkgs defined in home-managers inputs, we only want one copy of nixpkgs though
       darwin.url = "github:lnl7/nix-darwin";
       darwin.inputs.nixpkgs.follows = "nixpkgs"; # ...
+      dotfiles = {
+        url = "https://github.com/keanuplayz/dotfiles";
+        type = "git";
+        submodules = true;
+        flake = false;
+      };
   };
   
   # add the inputs declared above to the argument attribute set
-  outputs = { self, nixpkgs, home-manager, darwin }: {
+  outputs = { self, nixpkgs, home-manager, dotfiles, darwin }: {
     darwinConfigurations."alymac" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
+      specialArgs = { inherit dotfiles; };
       modules = [
         home-manager.darwinModules.home-manager
         ./hosts/alymac/default.nix
