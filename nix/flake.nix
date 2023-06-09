@@ -14,7 +14,10 @@
   outputs = { self, nixpkgs, home-manager, darwin }: {
     darwinConfigurations."alymac" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
-      modules = [ ./hosts/alymac/default.nix ];
+      modules = [
+        home-manager.darwinModules.home-manager
+        ./hosts/alymac/default.nix
+      ];
     };
   };
 }
