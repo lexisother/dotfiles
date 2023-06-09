@@ -96,6 +96,10 @@ in
 
       home = {
         packages = packageSets.everything;
+
+        file.".npmrc".text = ''
+          prefix = ''${HOME}/.npm-packages
+        '';
       };
 
       # DO NOT CHANGE UNLESS YOU ARE ABSOLUTELY SURE ALL STATE AFFECTED BY THIS
