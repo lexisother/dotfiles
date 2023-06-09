@@ -69,8 +69,6 @@ let
 
 in
 {
-  imports = [];
-
   # Absolutely proprietary.
   nixpkgs.config.allowUnfree = true;
 
@@ -94,58 +92,12 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    extraSpecialArgs =  { inherit dotfiles; };
     users.alyxia = { pkgs, ... }: {
+      imports = [ ./zsh.nix ./git.nix ./nvim.nix ];
+
       home = {
         packages = packageSets.everything;
-      };
-
-      programs.zsh = {
-        enable = true;
-        initExtra = ''
-          export GPG_TTY=$(tty)
-          source ${dotfiles}/zsh/zshrc
-        '';
-      };
-
-      programs.git = {
-        enable = true;
-        package = pkgs.gitAndTools.gitFull; # contains git send-email et al
-
-        userName = "Alyxia Sother";
-        userEmail = "alyxia@riseup.net";
-
-        signing = {
-          key = "01E16C4E775A37E4";
-          signByDefault = true;
-        };
-
-        delta.enable = true;
-      };
-
-      programs.gitui.enable = true;
-
-      programs.neovim = {
-        enable = true;
-        package = pkgs.neovim-unwrapped;
-
-        extraConfig = "source ${dotfiles}/nvim/init.vim";
-
-        coc = {
-          enable = true;
-
-          settings = {
-            languageServer = {
-              nix = {
-                command = "rnix-lsp";
-                filetypes = [ "nix" ];
-              };
-              "go.goPlsOptions" = {
-                completion = true;
-                completeUnimported = true;
-              };
-            };
-          };
-        };
       };
 
       # DO NOT CHANGE UNLESS YOU ARE ABSOLUTELY SURE ALL STATE AFFECTED BY THIS
