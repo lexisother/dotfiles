@@ -21,7 +21,6 @@ let
       ffmpeg
       fzf
       gh
-      # git # already managed by home-manager
       git-crypt
       gitui
       gnupg
@@ -29,7 +28,6 @@ let
       kubectl
       kubelogin-oidc
       mosh
-      # neovim # already managed by home-manager
       nixpkgs-fmt
       ripgrep
       sops

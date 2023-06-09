@@ -1,4 +1,4 @@
-{ dotfiles, ... }:
+{ pkgs, dotfiles, ... }:
 
 {
   programs.neovim = {
@@ -11,10 +11,14 @@
       enable = true;
 
       settings = {
-        languageServer = {
+        languageserver = {
           nix = {
-            command = "rnix-lsp";
+            command = "nil";
             filetypes = [ "nix" ];
+            rootPatterns = [ "flake.nix" ];
+            "settings.nil" = {
+              "formatting.command" = ["nixpkgs-fmt"];
+            };
           };
           "go.goPlsOptions" = {
             completion = true;
