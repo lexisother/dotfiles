@@ -8,7 +8,6 @@ let
       libtool
       patchelf
       pcre
-      pinentry
       pkg-config
     ];
 
@@ -30,7 +29,7 @@ let
       kubectl
       kubelogin-oidc
       mosh
-      neovim
+      # neovim # already managed by home-manager
       nixpkgs-fmt
       ripgrep
       sops
@@ -125,6 +124,30 @@ in
 
       programs.gitui.enable = true;
 
+      programs.neovim = {
+        enable = true;
+        package = pkgs.neovim-unwrapped;
+
+        extraConfig = "source ${dotfiles}/nvim/init.vim";
+
+        coc = {
+          enable = true;
+
+          settings = {
+            languageServer = {
+              nix = {
+                command = "rnix-lsp";
+                filetypes = [ "nix" ];
+              };
+              "go.goPlsOptions" = {
+                completion = true;
+                completeUnimported = true;
+              };
+            };
+          };
+        };
+      };
+
       # DO NOT CHANGE UNLESS YOU ARE ABSOLUTELY SURE ALL STATE AFFECTED BY THIS
       # OPTION IS APPROPRIATELY MIGRATED!!!
       home.stateVersion = "23.05"; # did you read the comment?
@@ -151,6 +174,7 @@ in
       "croc"
       "ddev"
       "mkcert"
+      "pinentry-mac"
       "pkg-config"
       "sdl2"
     ];
