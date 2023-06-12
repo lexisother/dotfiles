@@ -1,6 +1,8 @@
 { pkgs, lib, dotfiles, ... }:
 
 let
+  textEditor = "nvim";
+
   packageSets = with pkgs; rec {
     system = [
       gnutls
@@ -130,6 +132,9 @@ in
 
       home = {
         packages = packageSets.everything;
+        sessionVariables = {
+          EDITOR = textEditor;
+        };
 
         file.".npmrc".text = ''
           prefix = ''${HOME}/.npm-packages
