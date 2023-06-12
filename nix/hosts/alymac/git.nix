@@ -22,9 +22,16 @@
     };
 
     extraConfig = {
-      tag.gpgsign = true;
       init.defaultBranch = "master";
     };
+  };
+
+  programs.gh = {
+    enable = true;
+    # Why the *fuck* are these packages as opposed to GitHub links???
+    extensions = with pkgs; [
+      gh-actions-cache
+    ];
   };
 
   programs.gitui.enable = true;
