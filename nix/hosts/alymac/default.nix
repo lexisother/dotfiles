@@ -29,8 +29,10 @@ let
       kubelogin-oidc
       mosh
       nixpkgs-fmt
+      pandoc
       ripgrep
       sops
+      texlive.combined.scheme-small
       vim
       wget
     ];
