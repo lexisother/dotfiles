@@ -1,4 +1,4 @@
-{ pkgs, dotfiles, ... }:
+{ pkgs, lib, dotfiles, ... }:
 
 let
   packageSets = with pkgs; rec {
@@ -67,6 +67,37 @@ let
     everything = system ++ base ++ languages ++ programs ++ multimedia;
   };
 
+  # We've got a small issue here. I tested this in a repl, and what I've
+  # observed is that listFilesRecursive spits out [ /full/path/to/default.nix ],
+  # while builtins.readDir spits out { "default.nix" = "regular"; }
+  # In theory, this shouldn't be much of an issue, however, when using readDir
+  # I would be able to do `map (n: "${./.}/${n}"), while when using
+  # listFilesRecursive I have to use `map (n: "${n}").
+  # The difference here is that when using listFilesRecursive, `n` becomes
+  # `/nix/store/<ID>-default.nix`, meaning it can be used as-is, but when using
+  # `readDir` it becomes `default.nix`, meaning the string used in the map
+  # callback must be `"${./.}/${n}"` to get a path to the current derivation
+  # where the nix file lives in.
+  # Currently, I am unsure of the implications of having all files separately.
+  # To do it "the right way" I'd obviously prefer the nix files to be children
+  # of the alymac derivation, but it seems that if I want my map of imports to
+  # be generated from the entire directory listing, it isn't going to work out.
+  # The solution was slightly modified from this Reddit answer:
+  # <https://www.reddit.com/r/NixOS/comments/j5pa9o/comment/g81dvop/>
+  # So, let's get all files in the current directory...
+  importMap = map
+    (n: "${n}")
+    (lib.filesystem.listFilesRecursive ./.);
+  # importMap = map
+  #   (n: "${./.}/${n}")
+  #   (builtins.attrNames (builtins.readDir ./.));
+
+  # And filter out default.nix
+  importsFiltered =
+    builtins.filter
+      (x: !lib.strings.hasInfix "default" x)
+      importMap;
+
 in
 {
   # Absolutely proprietary.
@@ -92,9 +123,10 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs =  { inherit dotfiles; };
+    extraSpecialArgs = { inherit dotfiles; };
     users.alyxia = { pkgs, ... }: {
-      imports = [ ./zsh.nix ./git.nix ./nvim.nix ];
+      # Defined further above, a list of files to import.
+      imports = importsFiltered;
 
       home = {
         packages = packageSets.everything;
