@@ -66,7 +66,11 @@ let
       ffmpeg
     ];
 
-    everything = system ++ base ++ languages ++ programs ++ multimedia;
+    fonts = [
+      nerdfonts
+    ];
+
+    everything = system ++ base ++ languages ++ programs ++ multimedia ++ fonts;
   };
 
   # We've got a small issue here. I tested this in a repl, and what I've
@@ -188,6 +192,7 @@ in
       "itch"
       "iterm2"
       "obs"
+      "plex"
       "raycast"
       "sequel-ace"
       "shottr"
