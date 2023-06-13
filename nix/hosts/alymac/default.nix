@@ -1,5 +1,6 @@
-{ pkgs, lib, dotfiles, ... }:
+{ pkgs, specialArgs, lib, dotfiles, ... }:
 
+with lib;
 let
   textEditor = "nvim";
 
@@ -73,6 +74,7 @@ let
     everything = system ++ base ++ languages ++ programs ++ multimedia ++ fonts;
   };
 
+  # Old solution kept for posterity {{{
   # We've got a small issue here. I tested this in a repl, and what I've
   # observed is that listFilesRecursive spits out [ /full/path/to/default.nix ],
   # while builtins.readDir spits out { "default.nix" = "regular"; }
@@ -90,19 +92,30 @@ let
   # be generated from the entire directory listing, it isn't going to work out.
   # The solution was slightly modified from this Reddit answer:
   # <https://www.reddit.com/r/NixOS/comments/j5pa9o/comment/g81dvop/>
-  # So, let's get all files in the current directory...
-  importMap = map
-    (n: "${n}")
-    (lib.filesystem.listFilesRecursive ./.);
   # importMap = map
-  #   (n: "${./.}/${n}")
-  #   (builtins.attrNames (builtins.readDir ./.));
+  #   (n: "${n}")
+  #   (lib.filesystem.listFilesRecursive ./.);
+  # importsFiltered =
+  #   builtins.filter
+  #     (x: !lib.strings.hasInfix "default" x)
+  #     importMap;
+  # }}}
 
-  # And filter out default.nix
-  importsFiltered =
-    builtins.filter
-      (x: !lib.strings.hasInfix "default" x)
-      importMap;
+  getDir = dir: mapAttrs
+    (file: type:
+      if type == "directory" then getDir "${dir}/${file}" else type
+    )
+    (builtins.readDir dir);
+
+  files = dir: collect isString (mapAttrsRecursive
+    (path: type: concatStringsSep "/" path)
+    (getDir dir));
+
+  validFiles = dir: map
+    (file: ./. + "/${file}")
+    (filter
+      (file: hasSuffix ".nix" file && file != "default.nix")
+      (files dir));
 
 in
 {
@@ -131,8 +144,8 @@ in
     useUserPackages = true;
     extraSpecialArgs = { inherit dotfiles; };
     users.alyxia = { pkgs, ... }: {
-      # Defined further above, a list of files to import.
-      imports = importsFiltered;
+      # Defined further above, generates a list of files to import.
+      imports = validFiles ./.;
 
       home = {
         packages = packageSets.everything;
@@ -192,7 +205,7 @@ in
       "itch"
       "iterm2"
       "obs"
-      "plex"
+      "plexamp"
       "raycast"
       "sequel-ace"
       "shottr"
