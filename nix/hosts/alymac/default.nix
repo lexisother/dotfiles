@@ -38,6 +38,13 @@ let
       texlive.combined.scheme-small
       vim
       wget
+
+      # Fyra
+      glib-networking
+      meson
+      ninja
+      vala
+      desktop-file-utils
     ];
 
     languages = [
@@ -200,6 +207,16 @@ in
       "pinentry-mac"
       "pkg-config"
       "sdl2"
+
+      # Fyra crap, but from Homebrew because someone doesn't know how to
+      # package libraries in nixpkgs
+      "appstream-glib"
+      "glib"
+      "gobject-introspection"
+      "gsettings-desktop-schemas"
+      "gtk4"
+      "gtksourceview5"
+      "libgee"
     ];
 
     casks = [
