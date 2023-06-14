@@ -119,6 +119,19 @@ let
 
 in
 {
+
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      build-users-group = "nixbld";
+    };
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 8d";
+    };
+  };
+
   # Absolutely proprietary.
   nixpkgs.config.allowUnfree = true;
 
