@@ -1,3 +1,4 @@
 {
-    "workspace.checkThirdParty": false
+  "workspace.checkThirdParty": false,
+  "workspace.library": ["${3rd}/luassert/library", "${3rd}/luv/library"]
 }
