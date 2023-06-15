@@ -62,9 +62,6 @@ let
     ];
 
     programs = [
-      jetbrains.idea-ultimate
-      jetbrains.phpstorm
-      jetbrains.rider
       rectangle
       slack
       tailscale
@@ -231,12 +228,16 @@ in
       "discord-ptb"
       "docker"
       "firefox"
+      "goland"
       "google-chrome"
+      "intellij-idea"
       "itch"
       "iterm2"
       "obs"
+      "phpstorm"
       "plexamp"
       "raycast"
+      "rider"
       "sequel-ace"
       "shottr"
       "spotify"
