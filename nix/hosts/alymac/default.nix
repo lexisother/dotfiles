@@ -30,11 +30,13 @@ let
       jq
       kubectl
       kubelogin-oidc
+      lua-language-server
       mosh
       nixpkgs-fmt
       pandoc
       ripgrep
       sops
+      stylua
       texlive.combined.scheme-small
       vim
       wget
