@@ -9,8 +9,17 @@ if not ok then return end
 -- So, the nix-darwin configuration specifies the installation of zig as a
 -- replacement compiler solely so the Treesitter dialects compile. Very
 -- intuitive.
+-- Sadly, the solution only works on my old MacBook pro, which is a 13 inch
+-- model. So my only option is to lock it down to that device.
 if vim.loop.os_uname().sysname == 'Darwin' then
-    require('nvim-treesitter.install').compilers = { "zig" }
+    local meta = vim.fn.system({"system_profiler", "SPHardwareDataType"});
+    if not string.match(meta, "MacBookPro13,1") then
+        return
+    end
+
+    local opts = require('nvim-treesitter.install')
+    opts.compilers = { "zig" }
+    opts.command_extra_args = { "--help" }
 end
 
 local parser_configs = parser_configs.get_parser_configs()
