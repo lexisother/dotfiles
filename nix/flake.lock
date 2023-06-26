@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686210161,
-        "narHash": "sha256-cgP8P2Gk4WtOzd/Y7nEmweLpPOtMKVvHCIcq9zm9qMk=",
+        "lastModified": 1687691275,
+        "narHash": "sha256-VVywT8ubStvDPF5TscDBokT3T0l3zsOzCW056noh5zc=",
         "owner": "lnl7",
         "repo": "nix-darwin",
-        "rev": "40e4b85baac86969f94d6dba893aeae015c562c1",
+        "rev": "25ae710ba3cd448c5d5678788d37f3d149378bc0",
         "type": "github"
       },
       "original": {
@@ -23,11 +23,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1686302382,
-        "narHash": "sha256-BKJnBMPuFylshzuY8EQoyP6xuAGcxCauJspl1cVkg/A=",
+        "lastModified": 1687268328,
+        "narHash": "sha256-TS4xL8LIZHApLsLZmhgfk9mUDkTwbFUIyZ6Hze4Uyvc=",
         "ref": "refs/heads/master",
-        "rev": "4ea89899caf8a0fd87cdfdc4601f7e79fc666c37",
-        "revCount": 360,
+        "rev": "e7576c13c466b618ba2cd26b0ae67dd91389633b",
+        "revCount": 393,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/keanuplayz/dotfiles"
@@ -45,26 +45,27 @@
         ]
       },
       "locked": {
-        "lastModified": 1686305101,
-        "narHash": "sha256-xCgeI+uTKay3Ab3tMdP9m9flIJbFkRMKwRAmg5PQhJQ=",
+        "lastModified": 1687647567,
+        "narHash": "sha256-Ua90LZYJO7/7KW/KK/AqijhIekd+wxPwbVKXuBYzJeQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1e5d741ea3f3290d7ac06a02ded24bfdc7aadb37",
+        "rev": "6ca1e16eb3016c94b7ac16699e1d4158bd4e39a4",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "release-23.05",
         "repo": "home-manager",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1686265002,
-        "narHash": "sha256-JcRprVevSl5JNCp2oHy8fd3zvTsnuQgVCay0/sP/1GE=",
+        "lastModified": 1687762512,
+        "narHash": "sha256-2SqEYe/aFyUWDTD3DNzSUt718OspYg7pZpLk+tG9tCw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9e447f1c786f9d1375c3c8b2bff2c9400c63a34e",
+        "rev": "a5173c3819f44726a6aed01ec0bca6221b162a1c",
         "type": "github"
       },
       "original": {
