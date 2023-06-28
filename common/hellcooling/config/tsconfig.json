@@ -11,16 +11,19 @@
     "paths": {
       "@hh/*": [
         "/Users/alyxia/Documents/gitrepos/hh3/types/*",
-        "/Users/alyxia/Documents/Installations/hh3/types/*"
+        "/Users/alyxia/Documents/Installations/hh3/types/*",
+        "/home/alyxia/Documents/Installations/hh3/types/*"
       ],
       "@hh/ext/*": [
         "/Users/alyxia/Documents/gitrepos/hh3/ext/*",
-        "/Users/alyxia/Documents/Installations/hh3/ext/*"
+        "/Users/alyxia/Documents/Installations/hh3/ext/*",
+        "/home/alyxia/Documents/Installations/hh3/ext/*"
       ]
     },
     "typeRoots": [
       "/Users/alyxia/Documents/gitrepos/hh3/types",
-      "/Users/alyxia/Documents/Installations/hh3/types"
+      "/Users/alyxia/Documents/Installations/hh3/types",
+      "/home/alyxia/Documents/Installations/hh3/types"
     ]
   },
   "include": ["./ext/**/*", "./global.d.ts"]
