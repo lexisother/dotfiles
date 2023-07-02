@@ -43,4 +43,9 @@ _plugin project 'https://git.sr.ht/~keanucode/scripts/blob/master/project/projec
 
   _plugin keybase-compl 'https://raw.githubusercontent.com/fnoris/keybase-zsh-completion/master/_keybase' from=url \
     after_load='plugin-cfg-path fpath prepend ""'
+
+  if command_exists pnpm-shell-completion; then
+    _plugin pnpm-compl "https://raw.githubusercontent.com/g-plane/pnpm-shell-completion/main/pnpm-shell-completion.plugin.zsh" from=url \
+      after_load='plugin-cfg-path fpath prepend ""'
+  fi
 # }}}
