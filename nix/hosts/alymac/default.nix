@@ -51,7 +51,7 @@ let
 
     languages = [
       crystal
-      deno
+      # deno
       dotnet-sdk
       go
       jdk
@@ -226,6 +226,8 @@ in
       "1password-cli"
       "alt-tab"
       "android-studio"
+      "transmit"
+      "wine-stable"
       "audacity"
       "background-music"
       "db-browser-for-sqlite"
@@ -238,6 +240,7 @@ in
       "intellij-idea"
       "itch"
       "iterm2"
+      "lens"
       "obs"
       "phpstorm"
       "plexamp"
@@ -246,6 +249,7 @@ in
       "sequel-ace"
       "shottr"
       "spotify"
+      "texifier"
       "thunderbird"
       "visual-studio-code"
     ];
