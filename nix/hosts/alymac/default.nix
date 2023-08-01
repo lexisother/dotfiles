@@ -151,6 +151,9 @@ in
   # you'll need to enable this so nix-darwin creates a zshrc sourcing needed environment changes
   programs.zsh.enable = true;
 
+  # tailscaled isn't automatically registered as a service that should run on installation.
+  services.tailscale.enable = true;
+
   # Make sure to set the correct values, or everything will break! (in reality,
   # it will just not build)
   users.users.alyxia = {
