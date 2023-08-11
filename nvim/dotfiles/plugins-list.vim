@@ -54,6 +54,10 @@ let s:plug = funcref('dotfiles#plugman#register')
   endif
 " }}}
 
+" mini.nvim {{{
+  call s:plug('echasnovski/mini.pairs')
+" }}}
+
 " Misc {{{
   if has('nvim')
     call s:plug('andweeb/presence.nvim')
