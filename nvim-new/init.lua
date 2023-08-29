@@ -1,5 +1,5 @@
 local init_modules = {
-	"aly.plugins",
+--	"aly.plugins",
 	"aly.options"
 }
 
