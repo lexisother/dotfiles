@@ -1,17 +1,17 @@
-From 2f2ed36df2c55ca60c7074cf80f97cdc6d53f83e Mon Sep 17 00:00:00 2001
+From 8295005701c85955551b7493922b41085843fbe6 Mon Sep 17 00:00:00 2001
 From: Alyxia Sother <alyxia@riseup.net>
-Date: Mon, 22 May 2023 10:14:07 +0200
+Date: Sat, 23 Sep 2023 11:16:37 +0200
 Subject: [PATCH] web: build local extensions as well
 
 ---
- web/buildExtension.js | 35 +++++++++++++++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
+ web/buildExtension.js | 44 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
 diff --git a/web/buildExtension.js b/web/buildExtension.js
-index 206408c..4984ab2 100644
+index 206408c..8ed3312 100644
 --- a/web/buildExtension.js
 +++ b/web/buildExtension.js
-@@ -1,7 +1,37 @@
+@@ -1,7 +1,46 @@
 +const fs = require("fs");
 +const os = require("os");
 +const path = require("path");
@@ -19,10 +19,19 @@ index 206408c..4984ab2 100644
  process.env.BUILD_TYPE = "extension";
  const config = require("./webpack.config.js");
  
-+const PATH_TO_EXTS = path.join(
-+  os.homedir(),
-+  "Library/ApplicationSupport/hh3/ext"
-+);
++const platform = os.platform();
++let dataDir;
++switch (platform) {
++  case "linux":
++    dataDir = path.join(os.homedir(), ".config/hh3");
++    break;
++  case "darwin":
++    dataDir = path.join(os.homedir(), "Library/ApplicationSupport/hh3");
++    break;
++}
++if (!dataDir) throw new Error("No dataDir could be inferred! Aborting!");
++
++const PATH_TO_EXTS = path.join(dataDir, "ext");
 +const HH_EXT_DIR = path.join(__dirname, "../ext");
 +let exts = fs.readdirSync(PATH_TO_EXTS);
 +exts = exts.filter((e) => e !== ".git");
@@ -49,7 +58,7 @@ index 206408c..4984ab2 100644
  webpack.webpack(config, (err, stats) => {
    if (!stats?.compilation) {
      console.log(err);
-@@ -21,5 +51,10 @@ webpack.webpack(config, (err, stats) => {
+@@ -21,5 +60,10 @@ webpack.webpack(config, (err, stats) => {
          })
        );
      }
@@ -61,5 +70,5 @@ index 206408c..4984ab2 100644
    }
  });
 -- 
-2.37.1 (Apple Git-137.1)
+2.42.0
 
