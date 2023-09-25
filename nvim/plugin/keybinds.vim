@@ -9,7 +9,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
   nmap <silent> <F3>    <Plug>(coc-codeaction-line)
   xmap <silent> <F3>    <Plug>(coc-codeaction-selected)
 
-  inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
+  inoremap <expr> <C-CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
   inoremap <silent><expr> <TAB>
   \ coc#pum#visible() ? coc#pum#next(1):
