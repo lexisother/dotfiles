@@ -12,6 +12,10 @@
       signByDefault = true;
     };
 
+    ignores = [
+      ".DS_Store"
+    ];
+
     delta = {
       enable = true;
       options = {
