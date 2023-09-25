@@ -208,6 +208,7 @@ in
       "drud/ddev"
       "homebrew/cask"
       "homebrew/cask-versions"
+      "int128/kubelogin"
     ];
 
     # Please do not the brew.
@@ -215,6 +216,7 @@ in
       "composer"
       "croc"
       "ddev"
+      "kubelogin"
       "mkcert"
       "pinentry-mac"
       "pkg-config"
