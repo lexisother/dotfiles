@@ -57,6 +57,7 @@ let
       jdk
       nil
       nodejs_20
+      python2
       ruby_3_1
       sbcl
       shards
@@ -77,7 +78,13 @@ let
       nerdfonts
     ];
 
-    everything = system ++ base ++ languages ++ programs ++ multimedia ++ fonts;
+    python = with python311Packages; [
+      colorama
+      psutil
+      distro
+    ];
+
+    everything = system ++ base ++ languages ++ programs ++ multimedia ++ fonts ++ python;
   };
 
   # Old solution kept for posterity {{{
@@ -140,6 +147,9 @@ in
 
   # Absolutely proprietary.
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "python-2.7.18.6"
+  ];
 
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
