@@ -216,6 +216,7 @@ in
       "composer"
       "croc"
       "ddev"
+      "gradle"
       "kubelogin"
       "mkcert"
       "pinentry-mac"
