@@ -1,8 +1,8 @@
 diff --git a/web/buildExtension.js b/web/buildExtension.js
-index 206408c..4984ab2 100644
+index 206408c..8ed3312 100644
 --- a/web/buildExtension.js
 +++ b/web/buildExtension.js
-@@ -1,7 +1,37 @@
+@@ -1,7 +1,46 @@
 +const fs = require("fs");
 +const os = require("os");
 +const path = require("path");
@@ -10,10 +10,19 @@ index 206408c..4984ab2 100644
  process.env.BUILD_TYPE = "extension";
  const config = require("./webpack.config.js");
  
-+const PATH_TO_EXTS = path.join(
-+  os.homedir(),
-+  "Library/ApplicationSupport/hh3/ext"
-+);
++const platform = os.platform();
++let dataDir;
++switch (platform) {
++  case "linux":
++    dataDir = path.join(os.homedir(), ".config/hh3");
++    break;
++  case "darwin":
++    dataDir = path.join(os.homedir(), "Library/ApplicationSupport/hh3");
++    break;
++}
++if (!dataDir) throw new Error("No dataDir could be inferred! Aborting!");
++
++const PATH_TO_EXTS = path.join(dataDir, "ext");
 +const HH_EXT_DIR = path.join(__dirname, "../ext");
 +let exts = fs.readdirSync(PATH_TO_EXTS);
 +exts = exts.filter((e) => e !== ".git");
@@ -40,7 +49,7 @@ index 206408c..4984ab2 100644
  webpack.webpack(config, (err, stats) => {
    if (!stats?.compilation) {
      console.log(err);
-@@ -21,5 +51,10 @@ webpack.webpack(config, (err, stats) => {
+@@ -21,5 +60,10 @@ webpack.webpack(config, (err, stats) => {
          })
        );
      }
