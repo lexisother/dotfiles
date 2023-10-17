@@ -248,6 +248,7 @@ in
       "discord-ptb"
       "docker"
       "firefox"
+      "firefox-developer-edition"
       "goland"
       "google-chrome"
       "intellij-idea"
