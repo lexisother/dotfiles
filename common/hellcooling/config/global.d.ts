@@ -9,4 +9,6 @@ declare global {
     // fetch an ext's actual config type and return that instead.
     getModuleOptions: (moduleName: string) => Record<string, any>;
   };
+
+  const wreq: (module: string) => any;
 }
