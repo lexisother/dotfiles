@@ -25,6 +25,7 @@ overrides:
     extends:
       - eslint-config-dmitmel/presets/typescript-addon
     parserOptions:
+      ecmaVersion: 2020
       project: 'tsconfig.json'
       sourceType: module
     rules:
