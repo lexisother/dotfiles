@@ -238,8 +238,6 @@ in
       "1password-cli"
       "alt-tab"
       "android-studio"
-      "transmit"
-      "wine-stable"
       "audacity"
       "background-music"
       "db-browser-for-sqlite"
@@ -259,12 +257,16 @@ in
       "plexamp"
       "raycast"
       "rider"
+      "rubymine"
       "sequel-ace"
       "shottr"
       "spotify"
+      "steam"
       "texifier"
       "thunderbird"
+      "transmit"
       "visual-studio-code"
+      "wine-stable"
     ];
   };
 }
