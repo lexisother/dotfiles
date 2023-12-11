@@ -57,6 +57,8 @@ let
       dotnet-sdk_8
       go
       jdk
+      kotlin
+      kotlin-language-server
       lua-language-server
       nil
       nodejs_20
@@ -216,6 +218,7 @@ in
 
     # Please do not the brew.
     brews = [
+      "bear"
       "composer"
       "croc"
       "ddev"
