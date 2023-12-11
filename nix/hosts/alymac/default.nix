@@ -37,6 +37,7 @@ let
       sops
       stylua
       texlive.combined.scheme-small
+      typst
       vim
       wget
 
@@ -50,6 +51,9 @@ let
 
     languages = [
       crystal
+      dhall
+      dhall-json
+      dhall-lsp-server
       dotnet-sdk_8
       go
       jdk
