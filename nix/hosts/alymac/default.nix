@@ -1,4 +1,4 @@
-{ pkgs, specialArgs, lib, dotfiles, ... }:
+{ pkgs, lib, dotfiles, ... }:
 
 with lib;
 let
@@ -30,7 +30,6 @@ let
       jq
       kubectl
       kubelogin-oidc
-      lua-language-server
       mosh
       nixpkgs-fmt
       pandoc
@@ -51,10 +50,10 @@ let
 
     languages = [
       crystal
-      # deno
-      dotnet-sdk
+      dotnet-sdk_8
       go
       jdk
+      lua-language-server
       nil
       nodejs_20
       python2
