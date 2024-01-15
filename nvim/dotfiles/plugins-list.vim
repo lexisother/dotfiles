@@ -46,6 +46,7 @@ let s:plug = funcref('dotfiles#plugman#register')
     call s:plug('tpope/vim-projectionist')
     call s:plug('tpope/vim-dispatch')
   " }}}
+  call s:plug('rescript-lang/vim-rescript')
 " }}}
 
 " coc {{{

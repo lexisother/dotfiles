@@ -17,12 +17,19 @@
             filetypes = [ "nix" ];
             rootPatterns = [ "flake.nix" ];
             "settings.nil" = {
-              "formatting.command" = ["nixpkgs-fmt"];
+              "formatting.command" = [ "nixpkgs-fmt" ];
             };
           };
           "go.goPlsOptions" = {
             completion = true;
             completeUnimported = true;
+          };
+          rescript = {
+            enable = true;
+            command = "rescript-language-server";
+            args = [ "--node-ipc" ];
+            filetypes = [ "rescript" ];
+            rootPatterns = [ "rescript.json" "bsconfig.json" ];
           };
         };
       };
