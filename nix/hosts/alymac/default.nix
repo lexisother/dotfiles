@@ -54,7 +54,6 @@ let
       dhall
       dhall-json
       dhall-lsp-server
-      dotnet-sdk_8
       go
       jdk
       kotlin
@@ -71,7 +70,6 @@ let
 
     programs = [
       rectangle
-      slack
       tailscale
     ];
 
@@ -222,9 +220,11 @@ in
       "composer"
       "croc"
       "ddev"
+      "dotnet"
       "gradle"
       "kubelogin"
       "mkcert"
+      "nss"
       "pinentry-mac"
       "pkg-config"
       "sdl2"
@@ -260,6 +260,7 @@ in
       "iterm2"
       "lens"
       "obs"
+      "orbstack"
       "phpstorm"
       "plexamp"
       "raycast"
@@ -267,6 +268,7 @@ in
       "rubymine"
       "sequel-ace"
       "shottr"
+      "slack"
       "spotify"
       "steam"
       "texifier"
