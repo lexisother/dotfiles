@@ -210,7 +210,6 @@ in
 
     taps = [
       "drud/ddev"
-      "homebrew/cask"
       "homebrew/cask-versions"
       "int128/kubelogin"
     ];
@@ -221,6 +220,7 @@ in
       "composer"
       "croc"
       "ddev"
+      "deno"
       "dotnet"
       "ferium"
       "gradle"
@@ -229,6 +229,8 @@ in
       "nss"
       "pinentry-mac"
       "pkg-config"
+      "poetry"
+      "rustup"
       "sdl2"
 
       # Fyra crap, but from Homebrew because someone doesn't know how to
