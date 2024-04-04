@@ -79,6 +79,7 @@ let
 
     fonts = [
       nerdfonts
+      ibm-plex
     ];
 
     python = with python311Packages; [
