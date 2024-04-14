@@ -1,4 +1,4 @@
-{ pkgs, lib, dotfiles, ... }:
+{ self, pkgs, lib, dotfiles, ... }:
 
 with lib;
 let
@@ -178,7 +178,7 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit dotfiles; };
+    extraSpecialArgs = { inherit self; inherit dotfiles; };
     users.alyxia = { pkgs, ... }: {
       # Defined further above, generates a list of files to import.
       imports = validFiles ./.;

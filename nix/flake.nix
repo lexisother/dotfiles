@@ -20,7 +20,7 @@
   outputs = { self, nixpkgs, home-manager, dotfiles, darwin }: {
     darwinConfigurations."alymac" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
-      specialArgs = { inherit dotfiles; };
+      specialArgs = { inherit self; inherit dotfiles; };
       modules = [
         home-manager.darwinModules.home-manager
         ./hosts/alymac/default.nix

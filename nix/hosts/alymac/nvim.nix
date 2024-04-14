@@ -1,11 +1,11 @@
-{ pkgs, dotfiles, ... }:
+{ self, pkgs, ... }:
 
 {
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-unwrapped;
 
-    extraConfig = "source ${dotfiles}/nvim/init.vim";
+    extraConfig = ''source ~/.dotfiles/nvim/init.vim"source ${self}/nvim/init.vim'';
 
     coc = {
       enable = true;

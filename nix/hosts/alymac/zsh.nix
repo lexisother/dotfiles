@@ -1,11 +1,12 @@
-{ dotfiles, ... }:
+{ self, ... }:
 
 {
   programs.zsh = {
     enable = true;
     initExtra = ''
       export GPG_TTY=$(tty)
-      source ${dotfiles}/zsh/zshrc
+      source ~/.dotfiles/zsh/zshrc #source ${self}/zsh/zshrc
+      source "$HOME/.cargo/env"
 
       [[ -d "$HOME/.local/bin" ]] || mkdir "$HOME/.local/bin"
 
