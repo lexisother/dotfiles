@@ -20,7 +20,7 @@ let
       bitwarden-cli
       cloudflared
       delta
-      exa
+      eza
       ffmpeg
       fzf
       gh
@@ -152,7 +152,7 @@ in
   # Absolutely proprietary.
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "python-2.7.18.6"
+    "python-2.7.18.8"
   ];
 
   # Make sure the nix daemon always runs
