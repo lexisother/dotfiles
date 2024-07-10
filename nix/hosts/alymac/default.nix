@@ -138,7 +138,13 @@ in
 {
 
   nix = {
-    package = pkgs.nix;
+    # package = pkgs.nix;
+    package = pkgs.lix.overrideAttrs (oldAttrs: {
+      postPatch = (oldAttrs.postPatch or "") + ''
+        substituteInPlace src/libmain/shared.cc \
+          --replace-fail "(Lix, like Nix)" "but for lesbians"
+      '';
+    });
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       build-users-group = "nixbld";
