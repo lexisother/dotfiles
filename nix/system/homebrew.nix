@@ -1,0 +1,90 @@
+{ ... }:
+
+{
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "zap";
+      upgrade = true;
+    };
+
+    taps = [
+      "drud/ddev"
+      "homebrew/cask-versions"
+      "int128/kubelogin"
+    ];
+
+    # Please do not the brew.
+    brews = [
+      "bear"
+      "composer"
+      "croc"
+      "ddev"
+      "deno"
+      "dotnet"
+      "ferium"
+      "gradle"
+      "kubelogin"
+      "mkcert"
+      "nss"
+      "pinentry-mac"
+      "pkg-config"
+      "poetry"
+      "rustup"
+      "sdl2"
+
+      # Fyra crap, but from Homebrew because someone doesn't know how to
+      # package libraries in nixpkgs
+      "appstream-glib"
+      "glib"
+      "gobject-introspection"
+      "gsettings-desktop-schemas"
+      "gtk4"
+      "gtksourceview5"
+      "libgee"
+    ];
+
+    casks = [
+      "1password"
+      "1password-cli"
+      "alt-tab"
+      "android-studio"
+      "audacity"
+      "background-music"
+      "browserstacklocal"
+      "db-browser-for-sqlite"
+      "discord"
+      "discord-ptb"
+      "docker"
+      "firefox"
+      "firefox-developer-edition"
+      "goland"
+      "google-chrome"
+      "intellij-idea"
+      "itch"
+      "iterm2"
+      "lens"
+      "minecraft"
+      "obs"
+      "orbstack"
+      "phpstorm"
+      "plexamp"
+      "raycast"
+      "readdle-spark"
+      "rider"
+      "rubymine"
+      "sequel-ace"
+      "shottr"
+      "slack"
+      "spotify"
+      "steam"
+      "texifier"
+      "thunderbird"
+      "transmit"
+      "typora"
+      "visual-studio-code"
+      "wine-stable"
+    ];
+  };
+}
