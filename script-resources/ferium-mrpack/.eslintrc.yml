@@ -1,0 +1,10 @@
+extends: eslint-config-dmitmel/presets/node
+parserOptions:
+  sourceType: module
+rules:
+  no-unused-expressions: off
+  node/shebang: off
+  node/no-unsupported-features/es-syntax:
+    - error
+    - ignores:
+        - modules
