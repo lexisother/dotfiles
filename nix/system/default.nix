@@ -3,6 +3,12 @@
 {
   imports = importAll [] ./.;
 
+  networking = {
+    computerName = "Alyxia's MacBook Pro";
+    hostName = "alymac";
+    localHostName = "alymac";
+  };
+
   users.users.alyxia = {
     name = "alyxia";
     home = "/Users/alyxia";
