@@ -15,6 +15,7 @@ let
       act
       bat
       bitwarden-cli
+      cachix
       cloudflared
       delta
       eza
@@ -28,6 +29,7 @@ let
       kubectl
       kubelogin-oidc
       mosh
+      nixd
       nixpkgs-fmt
       pandoc
       ripgrep
