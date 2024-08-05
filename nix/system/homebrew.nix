@@ -18,6 +18,7 @@
     # Please do not the brew.
     brews = [
       "bear"
+      "coder"
       "composer"
       "croc"
       "ddev"
@@ -57,6 +58,7 @@
       "discord"
       "discord-ptb"
       "docker"
+      "dolphin@dev"
       "firefox"
       "firefox-developer-edition"
       "goland"
@@ -70,6 +72,7 @@
       "orbstack"
       "phpstorm"
       "plexamp"
+      "qbittorrent"
       "raycast"
       "readdle-spark"
       "rider"
