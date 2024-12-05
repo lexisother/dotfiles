@@ -18,6 +18,7 @@
       export FRENYARD_SCALE=2.40
       export RETHINK_API="https://rethink.alyxia.dev"
       export KUBECONFIG="$HOME/.kube/config.yaml"
+      export SDKROOT="$(xcrun --show-sdk-path)"
 
       function violent-update() {
         # <https://github.com/adryd325/dotfiles/blob/c52d10f0cb4b54ee46e2ac5b01b8be9f8d57973d/install.sh#L17>

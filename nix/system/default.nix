@@ -3,6 +3,8 @@
 {
   imports = importAll [] ./.;
 
+  system.stateVersion = 5;
+
   networking = {
     computerName = "Alyxia's MacBook Pro";
     hostName = "alymac";

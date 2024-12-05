@@ -14,7 +14,7 @@ let
     base = [
       act
       bat
-      bitwarden-cli
+      # bitwarden-cli
       cachix
       cloudflared
       delta
@@ -25,7 +25,7 @@ let
       git-crypt
       gitui
       gnupg
-      jq
+      # jq
       kubectl
       kubelogin-oidc
       mosh
@@ -59,7 +59,7 @@ let
       kotlin-language-server
       lua-language-server
       nil
-      nodejs_20
+      nodejs_22
       python2
       ruby_3_1
       sbcl

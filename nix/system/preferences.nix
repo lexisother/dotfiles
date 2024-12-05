@@ -14,8 +14,8 @@
       NSNavPanelExpandedStateForSaveMode = true;
       NSNavPanelExpandedStateForSaveMode2 = true;
 
-      KeyRepeat = 1;
-      InitialKeyRepeat = 10;
+      KeyRepeat = 6;
+      InitialKeyRepeat = 25;
     };
 
     LaunchServices.LSQuarantine = false;

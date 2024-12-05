@@ -1,9 +1,11 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   services.nix-daemon.enable = true;
 
   nix = {
+    package = inputs.nixpkgs-old.legacyPackages.${pkgs.system}.lix;
+
     settings = {
       # enable flakes and the `nix` command
       experimental-features = [ "nix-command" "flakes" ];
@@ -15,7 +17,7 @@
       };
 
       # "apply the free optimisations"
-      auto-optimise-store = true;
+      # auto-optimise-store = true;
 
       # we need to create some trusted and allwed users so that we can use 
       # some features like substituters

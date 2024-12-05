@@ -13,6 +13,7 @@
       "drud/ddev"
       "homebrew/cask-versions"
       "int128/kubelogin"
+      "the-wineskin-project/wineskin"
     ];
 
     # Please do not the brew.
@@ -34,6 +35,7 @@
       "poetry"
       "rustup"
       "sdl2"
+      "spicetify-cli"
 
       # Fyra crap, but from Homebrew because someone doesn't know how to
       # package libraries in nixpkgs
@@ -51,18 +53,23 @@
       "1password-cli"
       "alt-tab"
       "android-studio"
+      "anydesk"
       "audacity"
       "background-music"
       "browserstacklocal"
       "db-browser-for-sqlite"
       "discord"
-      "discord-ptb"
+      # "discord-ptb"
+      "discord@ptb"
       "docker"
       "dolphin@dev"
       "firefox"
-      "firefox-developer-edition"
+      # "firefox-developer-edition"
+      "firefox@developer-edition"
       "goland"
       "google-chrome"
+      "imhex"
+      "insomnia"
       "intellij-idea"
       "itch"
       "iterm2"
@@ -88,6 +95,7 @@
       "typora"
       "visual-studio-code"
       "wine-stable"
+      "wineskin"
     ];
   };
 }
