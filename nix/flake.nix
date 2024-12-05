@@ -38,14 +38,14 @@
   in {
     darwinConfigurations."alymac" = darwin.lib.darwinSystem {
       inherit system;
-      specialArgs = libs // inputs;
+      specialArgs = libs // { inherit inputs; };
       modules = [
         ./system
         # lix.nixosModules.default
         home-manager.darwinModules.home-manager
         {
           home-manager = {
-            extraSpecialArgs = { inherit dotfiles; } // libs // inputs;
+            extraSpecialArgs = { inherit self dotfiles; } // libs;
             useGlobalPkgs = true;
             useUserPackages = true;
             users.alyxia.imports = [ ./home ];
