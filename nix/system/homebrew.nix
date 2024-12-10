@@ -20,7 +20,6 @@
     brews = [
       "bear"
       "coder"
-      "composer"
       "croc"
       "ddev"
       "deno"

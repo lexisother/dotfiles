@@ -1,6 +1,12 @@
 { pkgs, ... }:
 
 let
+  phpEnv = pkgs.php.buildEnv {
+    extensions = ({ enabled, all }: enabled ++ (with all; [
+      imagick
+    ]));
+  };
+
   packageSets = with pkgs; {
    system = [
       gnutls
@@ -60,6 +66,8 @@ let
       lua-language-server
       nil
       nodejs_22
+      phpEnv
+      phpEnv.packages.composer
       python2
       ruby_3_1
       sbcl
