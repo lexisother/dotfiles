@@ -4,7 +4,7 @@
   services.nix-daemon.enable = true;
 
   nix = {
-    package = inputs.nixpkgs-old.legacyPackages.${pkgs.system}.lix;
+    # package = inputs.nixpkgs-old.legacyPackages.${pkgs.system}.lix;
 
     settings = {
       # enable flakes and the `nix` command

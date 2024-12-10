@@ -35,7 +35,6 @@
       "poetry"
       "rustup"
       "sdl2"
-      "spicetify-cli"
 
       # Fyra crap, but from Homebrew because someone doesn't know how to
       # package libraries in nixpkgs
@@ -59,12 +58,10 @@
       "browserstacklocal"
       "db-browser-for-sqlite"
       "discord"
-      # "discord-ptb"
       "discord@ptb"
       "docker"
       "dolphin@dev"
       "firefox"
-      # "firefox-developer-edition"
       "firefox@developer-edition"
       "goland"
       "google-chrome"
