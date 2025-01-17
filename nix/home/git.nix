@@ -19,9 +19,16 @@
     delta = {
       enable = true;
       options = {
+        navigate = true;
         line-numbers = true;
         features = "decorations";
-        syntax-theme = "ansi";
+
+        decorations = {
+          commit-decoration-style = "bold yellow box ul";
+          file-style = "bold yellow ul";
+          file-decoration-style = "none";
+          hunk-header-decoration-style = "yellow box";
+        };
       };
     };
 

@@ -37,13 +37,13 @@
 
       # Fyra crap, but from Homebrew because someone doesn't know how to
       # package libraries in nixpkgs
-      "appstream-glib"
-      "glib"
-      "gobject-introspection"
-      "gsettings-desktop-schemas"
-      "gtk4"
-      "gtksourceview5"
-      "libgee"
+      # "appstream-glib"
+      # "glib"
+      # "gobject-introspection"
+      # "gsettings-desktop-schemas"
+      # "gtk4"
+      # "gtksourceview5"
+      # "libgee"
     ];
 
     casks = [
@@ -59,9 +59,9 @@
       "discord"
       "discord@ptb"
       "docker"
-      "dolphin@dev"
       "firefox"
       "firefox@developer-edition"
+      "fleet"
       "goland"
       "google-chrome"
       "imhex"
@@ -74,7 +74,6 @@
       "obs"
       "orbstack"
       "phpstorm"
-      "plexamp"
       "qbittorrent"
       "raycast"
       "readdle-spark"
