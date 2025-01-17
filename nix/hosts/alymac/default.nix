@@ -1,19 +1,10 @@
-{ importAll, ... }:
-
 {
-  imports = importAll [] ./.;
-
   system.stateVersion = 5;
 
   networking = {
     computerName = "Alyxia's MacBook Pro";
     hostName = "alymac";
     localHostName = "alymac";
-  };
-
-  users.users.alyxia = {
-    name = "alyxia";
-    home = "/Users/alyxia";
   };
 
   # enable the gpg agent by default

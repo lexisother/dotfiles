@@ -1,5 +1,4 @@
-{ inputs, pkgs, ... }:
-
+{ pkgs, ... }:
 {
   services.nix-daemon.enable = true;
 
@@ -8,7 +7,10 @@
 
     settings = {
       # enable flakes and the `nix` command
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
       # disable the flake registry since it worsens perf
       flake-registry = pkgs.writers.writeJSON "flakes-empty.json" {
@@ -19,7 +21,7 @@
       # "apply the free optimisations"
       # auto-optimise-store = true;
 
-      # we need to create some trusted and allwed users so that we can use 
+      # we need to create some trusted and allwed users so that we can use
       # some features like substituters
       allowed-users = [
         "@wheel" # allow sudo users to mark the following values as trusted
@@ -66,6 +68,7 @@
         "lexisother.cachix.org-1:/JtVjLzEue9SHlXK0O4ogtZpRpzeLqTwfZpfTIN/N2s="
       ];
     };
+
     gc = {
       automatic = true;
       options = "--delete-older-than 3d";

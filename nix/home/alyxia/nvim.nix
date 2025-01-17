@@ -1,5 +1,4 @@
 { self, pkgs, ... }:
-
 {
   programs.neovim = {
     enable = true;
@@ -29,7 +28,10 @@
             command = "rescript-language-server";
             args = [ "--node-ipc" ];
             filetypes = [ "rescript" ];
-            rootPatterns = [ "rescript.json" "bsconfig.json" ];
+            rootPatterns = [
+              "rescript.json"
+              "bsconfig.json"
+            ];
           };
         };
       };
