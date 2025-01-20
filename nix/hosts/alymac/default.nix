@@ -1,19 +1,10 @@
-{ importAll, ... }:
-
 {
-  imports = importAll [] ./.;
-
   system.stateVersion = 5;
 
   networking = {
     computerName = "Alyxia's MacBook Pro";
     hostName = "alymac";
     localHostName = "alymac";
-  };
-
-  users.users.alyxia = {
-    name = "alyxia";
-    home = "/Users/alyxia";
   };
 
   # enable the gpg agent by default
@@ -25,4 +16,7 @@
 
   # tailscaled isn't automatically registered as a service that should run on installation.
   services.tailscale.enable = true;
+
+  # set nixpkgs system
+  nixpkgs.hostPlatform = "x86_64-darwin";
 }

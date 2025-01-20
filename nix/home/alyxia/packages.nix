@@ -2,13 +2,16 @@
 
 let
   phpEnv = pkgs.php.buildEnv {
-    extensions = ({ enabled, all }: enabled ++ (with all; [
-      imagick
-    ]));
+    extensions =
+      { enabled, all }:
+      enabled
+      ++ (with all; [
+        imagick
+      ]);
   };
 
   packageSets = with pkgs; {
-   system = [
+    system = [
       gnutls
       gsasl
       libtool
@@ -95,8 +98,8 @@ let
       distro
     ];
   };
-  everything = builtins.concatLists (builtins.attrValues packageSets);
 
+  everything = builtins.concatLists (builtins.attrValues packageSets);
 in
 {
   home.packages = everything;

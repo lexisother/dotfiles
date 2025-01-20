@@ -1,7 +1,17 @@
-{ importAll, ... }:
-
+{ inputs, self, ... }:
 {
-  imports = importAll [] ./.;
+  imports = [ inputs.home-manager.darwinModules.home-manager ];
 
-  home.stateVersion = "24.05";
+  config = {
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+
+      extraSpecialArgs = {
+        inherit self inputs;
+      };
+
+      users.alyxia = ./alyxia;
+    };
+  };
 }
