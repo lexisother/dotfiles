@@ -53,6 +53,7 @@
       "audacity"
       "background-music"
       "browserstacklocal"
+      "clion"
       "db-browser-for-sqlite"
       "discord"
       "discord@ptb"
