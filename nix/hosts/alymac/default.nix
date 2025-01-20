@@ -16,4 +16,7 @@
 
   # tailscaled isn't automatically registered as a service that should run on installation.
   services.tailscale.enable = true;
+
+  # set nixpkgs system
+  nixpkgs.hostPlatform = "x86_64-darwin";
 }

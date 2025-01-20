@@ -11,7 +11,7 @@
         inherit self inputs;
       };
 
-      users.alyxia = ./home;
+      users.alyxia = ./alyxia;
     };
   };
 }
