@@ -1,0 +1,9 @@
+{ ... }:
+
+{
+  services = {
+    syncthing = {
+      enable = true;
+    };
+  };
+}

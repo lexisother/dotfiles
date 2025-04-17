@@ -23,7 +23,6 @@ let
     base = [
       act
       bat
-      # bitwarden-cli
       cachix
       cloudflared
       delta
@@ -34,10 +33,11 @@ let
       git-crypt
       gitui
       gnupg
-      # jq
+      imagemagick
       kubectl
       kubelogin-oidc
       mosh
+      nix-init
       nixd
       nixpkgs-fmt
       pandoc
@@ -62,6 +62,7 @@ let
       dhall
       dhall-json
       dhall-lsp-server
+      ghostscript
       go
       jdk
       kotlin
