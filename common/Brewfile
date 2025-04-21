@@ -1,102 +1,129 @@
-# Taps {{{
-  tap "ddev/ddev"
-  tap "the-wineskin-project/wineskin"
+# Utils {{{
+def flatten_brews(brews)
+  brews.flat_map do |category, brew_list|
+    brew_list.map do |brew|
+      if brew.is_a?(Hash)
+        brew.to_a.first # Extract the package name and options from the hash
+      else
+        [brew, {}] # No options, so use an empty hash
+      end
+    end
+  end
+end
+
+def liftoff(root)
+  root[:taps].each do |name|
+   tap name
+  end
+
+  flatten_brews(root[:brews]).each do |pkg, opts|
+    brew(pkg, opts)
+  end
+
+  root[:casks].each do |name|
+    cask name
+  end
+end
 # }}}
 
-# Background services {{{
-  brew "syncthing", restart_service: :changed
-  brew "tailscale", restart_service: :changed
-# }}}
+packages = {
+  taps: [
+    "ddev/ddev",
+    "the-wineskin-project/wineskin"
+  ],
+  brews: { # {{{
+    services: [
+      { "syncthing" => { restart_service: :changed } },
+      { "tailscale" => { restart_service: :changed } }
+    ],
+    system: [
+      "gcc@12",
+      "mkcert",
+      "nss",
+      "pinentry-mac",
+      "pkg-config",
+      "sdl2"
+    ],
+    languages: [
+      "bash-language-server"
+      "dotnet"
+      "gradle"
+      "node"
+      "poetry"
+      "dhall"
+      "dhall-json"
+      "dhall-lsp-server"
+      "go"
+      "openjdk"
+      "kotlin"
+      "lua-language-server"
+      "php"
+      "composer"
+      "ruby"
+    ],
+    tools: [
+      "bat"
+      "bear"
+      "coder"
+      "croc"
+      "ddev/ddev/ddev"
+      "ijq"
+      "neovim"
+      "git-delta"
+      "act"
+      "eza"
+      "ffmpeg"
+      "fzf"
+      "gh"
+      "git-crypt"
+      "gitui"
+      "gnupg"
+      "imagemagick"
+      "kubernetes-cli"
+      "pandoc"
+      "ripgrep"
+      "sops"
+      "wget"
+    ]
+  }, # }}}
+  casks: [ # {{{
+    "1password"
+    "1password-cli"
+    "alt-tab"
+    "android-studio"
+    "browserstacklocal"
+    "db-browser-for-sqlite"
+    "discord"
+    "discord@ptb"
+    "firefox@developer-edition"
+    "fleet"
+    "font-jetbrains-mono-nerd-font"
+    "font-ibm-plex"
+    "goland"
+    "imhex"
+    "insomnia"
+    "intellij-idea"
+    "iterm2"
+    "kitty"
+    "lens"
+    "obs"
+    "obsidian"
+    "orbstack"
+    "phpstorm"
+    "qbittorrent"
+    "raycast"
+    "rider"
+    "rubymine"
+    "sequel-ace"
+    "shottr"
+    "slack"
+    "spotify"
+    "steam"
+    "thunderbird"
+    "transmit"
+    "visual-studio-code"
+    "rectangle"
+  ] # }}}
+}
 
-# Brews {{{
-  # System {{{
-    brew "gcc@12"
-    brew "mkcert"
-    brew "nss"
-    brew "pinentry-mac"
-    brew "pkg-config"
-    brew "sdl2"
-  # }}}
-
-  # Languages {{{
-    brew "bash-language-server"
-    brew "dotnet"
-    brew "gradle"
-    brew "node"
-    brew "poetry"
-    brew "dhall"
-    brew "dhall-json"
-    brew "dhall-lsp-server"
-    brew "go"
-    brew "openjdk"
-    brew "kotlin"
-    brew "lua-language-server"
-    brew "php"
-    brew "composer"
-    brew "ruby"
-  # }}}
-
-  # Tools {{{
-    brew "bat"
-    brew "bear"
-    brew "coder"
-    brew "croc"
-    brew "ddev/ddev/ddev"
-    brew "ijq"
-    brew "neovim"
-    brew "git-delta"
-    brew "act"
-    brew "eza"
-    brew "ffmpeg"
-    brew "fzf"
-    brew "gh"
-    brew "git-crypt"
-    brew "gitui"
-    brew "gnupg"
-    brew "imagemagick"
-    brew "kubernetes-cli"
-    brew "pandoc"
-    brew "ripgrep"
-    brew "sops"
-    brew "wget"
-  # }}}
-# }}}
-
-# Casks {{{
-cask "1password"
-cask "1password-cli"
-cask "alt-tab"
-cask "android-studio"
-cask "browserstacklocal"
-cask "db-browser-for-sqlite"
-cask "discord"
-cask "discord@ptb"
-cask "firefox@developer-edition"
-cask "fleet"
-cask "font-jetbrains-mono-nerd-font"
-cask "font-ibm-plex"
-cask "goland"
-cask "imhex"
-cask "insomnia"
-cask "intellij-idea"
-cask "iterm2"
-cask "kitty"
-cask "lens"
-cask "obs"
-cask "obsidian"
-cask "orbstack"
-cask "phpstorm"
-cask "qbittorrent"
-cask "raycast"
-cask "rider"
-cask "rubymine"
-cask "sequel-ace"
-cask "shottr"
-cask "slack"
-cask "spotify"
-cask "steam"
-cask "thunderbird"
-cask "transmit"
-cask "visual-studio-code"
-cask "rectangle"
-# }}}
+liftoff packages
