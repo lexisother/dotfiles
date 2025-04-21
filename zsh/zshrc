@@ -5,15 +5,15 @@ DOTFILES_DISABLE_WELCOME=1
 DOTFILES_SYNC_LAST_WORKING_DIR=1
 
 # Get this file's current directory and source Dima's zshrc from there
-K_ZSH_DOTFILES="$( dirname "$( readlink -f "$0" )" )"
-source $K_ZSH_DOTFILES/../dmitmel-dotfiles/zsh/zshrc
+A_ZSH_DOTFILES="$( dirname "$( readlink -f "$0" )" )"
+source $A_ZSH_DOTFILES/../dmitmel-dotfiles/zsh/zshrc
 
 for script in functions plugins aliases; do
-  source "$K_ZSH_DOTFILES/$script.zsh"
+  source "$A_ZSH_DOTFILES/$script.zsh"
 done
 
-if [[ -d "$K_ZSH_DOTFILES/custom" ]]; then
-  for script in $K_ZSH_DOTFILES/custom/*.zsh; do
+if [[ -d "$A_ZSH_DOTFILES/custom" ]]; then
+  for script in $A_ZSH_DOTFILES/custom/*.zsh; do
     source "$script"
   done
 fi
