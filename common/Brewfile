@@ -1,0 +1,102 @@
+# Taps {{{
+  tap "ddev/ddev"
+  tap "the-wineskin-project/wineskin"
+# }}}
+
+# Background services {{{
+  brew "syncthing", restart_service: :changed
+  brew "tailscale", restart_service: :changed
+# }}}
+
+# Brews {{{
+  # System {{{
+    brew "gcc@12"
+    brew "mkcert"
+    brew "nss"
+    brew "pinentry-mac"
+    brew "pkg-config"
+    brew "sdl2"
+  # }}}
+
+  # Languages {{{
+    brew "bash-language-server"
+    brew "dotnet"
+    brew "gradle"
+    brew "node"
+    brew "poetry"
+    brew "dhall"
+    brew "dhall-json"
+    brew "dhall-lsp-server"
+    brew "go"
+    brew "openjdk"
+    brew "kotlin"
+    brew "lua-language-server"
+    brew "php"
+    brew "composer"
+    brew "ruby"
+  # }}}
+
+  # Tools {{{
+    brew "bat"
+    brew "bear"
+    brew "coder"
+    brew "croc"
+    brew "ddev/ddev/ddev"
+    brew "ijq"
+    brew "neovim"
+    brew "git-delta"
+    brew "act"
+    brew "eza"
+    brew "ffmpeg"
+    brew "fzf"
+    brew "gh"
+    brew "git-crypt"
+    brew "gitui"
+    brew "gnupg"
+    brew "imagemagick"
+    brew "kubernetes-cli"
+    brew "pandoc"
+    brew "ripgrep"
+    brew "sops"
+    brew "wget"
+  # }}}
+# }}}
+
+# Casks {{{
+cask "1password"
+cask "1password-cli"
+cask "alt-tab"
+cask "android-studio"
+cask "browserstacklocal"
+cask "db-browser-for-sqlite"
+cask "discord"
+cask "discord@ptb"
+cask "firefox@developer-edition"
+cask "fleet"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-ibm-plex"
+cask "goland"
+cask "imhex"
+cask "insomnia"
+cask "intellij-idea"
+cask "iterm2"
+cask "kitty"
+cask "lens"
+cask "obs"
+cask "obsidian"
+cask "orbstack"
+cask "phpstorm"
+cask "qbittorrent"
+cask "raycast"
+cask "rider"
+cask "rubymine"
+cask "sequel-ace"
+cask "shottr"
+cask "slack"
+cask "spotify"
+cask "steam"
+cask "thunderbird"
+cask "transmit"
+cask "visual-studio-code"
+cask "rectangle"
+# }}}
