@@ -1,5 +1,3 @@
-let s:plug = funcref('dotfiles#plugman#register')
-
 " UI {{{
   if has('nvim')
     call s:plug('romgrk/barbar.nvim')
@@ -9,9 +7,11 @@ let s:plug = funcref('dotfiles#plugman#register')
 
 " Navigation {{{
   if has('nvim')
-    call s:plug('nvim-telescope/telescope.nvim') " dependencies {{{
-      call s:plug('nvim-lua/plenary.nvim')
-    " }}}
+    call s:plug('nvim-telescope/telescope.nvim', {
+\     'requires': [
+\       'nvim-lua/plenary.nvim'
+\     ]
+\   })
   endif
 " }}}
 
@@ -26,32 +26,28 @@ let s:plug = funcref('dotfiles#plugman#register')
 
 " Language specific {{{
   if has('nvim')
-    call s:plug('xiyaowong/coc-nvim-lua')
-    call s:plug('alaviss/nim.nvim')
     if has('unix')
-      call s:plug('nvim-neorg/neorg') " dependencies {{{
-        call s:plug('nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' })
-      " }}}
+      call s:plug('nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' })
     endif
   endif
   call s:plug('lervag/vimtex')
   call s:plug('stevearc/vim-arduino')
-  call s:plug('luke-gru/vim-riml')
-  call s:plug('guns/vim-sexp')
-  call s:plug('vim-scripts/newlisp')
   call s:plug('m-pilia/vim-mediawiki')
   call s:plug('aquach/vim-mediawiki-editor')
-  call s:plug('noahfrederick/vim-laravel') " dependencies {{{
-    call s:plug('noahfrederick/vim-composer')
-    call s:plug('tpope/vim-projectionist')
-    call s:plug('tpope/vim-dispatch')
-  " }}}
-  call s:plug('rescript-lang/vim-rescript')
+  call s:plug('noahfrederick/vim-laravel', {
+\   'requires': [
+\     'noahfrederick/vim-composer',
+\     'tpope/vim-projectionist',
+\     'tpope/vim-dispatch'
+\   ]
+\ })
 " }}}
 
 " coc {{{
   if g:dotfiles_build_coc_from_source
-    call s:plug('https://github.com/UltiRequiem/coc-cl', { 'do': 'yarn install --frozen-lockfile && yarn build' })
+    call s:plug('https://github.com/UltiRequiem/coc-cl', {
+\     'do': 'yarn install --frozen-lockfile && yarn build'
+\   })
   endif
 " }}}
 
@@ -60,12 +56,6 @@ let s:plug = funcref('dotfiles#plugman#register')
 " }}}
 
 " Misc {{{
-  if has('nvim')
-    call s:plug('andweeb/presence.nvim')
-    if has('nvim-0.6.0')
-      call s:plug('github/copilot.vim')
-    endif
-  endif
   call s:plug('junegunn/vader.vim')
   call s:plug('wakatime/vim-wakatime')
 " }}}
