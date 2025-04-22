@@ -25,11 +25,6 @@
 " }}}
 
 " Language specific {{{
-  if has('nvim')
-    if has('unix')
-      Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-    endif
-  endif
   Plug 'lervag/vimtex'
   Plug 'stevearc/vim-arduino'
   Plug 'm-pilia/vim-mediawiki'
