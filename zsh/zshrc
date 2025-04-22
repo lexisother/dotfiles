@@ -1,23 +1,21 @@
 #!/usr/bin/env zsh
 
-# Options for Dima's config
-DOTFILES_DISABLE_WELCOME=1
-DOTFILES_SYNC_LAST_WORKING_DIR=1
-
 # Get this file's current directory and source Dima's zshrc from there
 A_ZSH_DOTFILES="$( dirname "$( readlink -f "$0" )" )"
-source $A_ZSH_DOTFILES/../dmitmel-dotfiles/zsh/zshrc
 
-for script in functions plugins aliases; do
-  source "$A_ZSH_DOTFILES/$script.zsh"
-done
+# Options for Dima's config
+DOTFILES_SYNC_LAST_WORKING_DIR=1
 
-if [[ -d "$A_ZSH_DOTFILES/custom" ]]; then
-  for script in $A_ZSH_DOTFILES/custom/*.zsh; do
-    source "$script"
+_dotfiles_customizations() {
+  for script in functions plugins aliases; do
+    source "$A_ZSH_DOTFILES/$script.zsh"
   done
-fi
 
-if [[ -z "$KDOTFILES_DISABLE_WELCOME" && -z "$POETRY_ACTIVE" ]]; then
-  welcome
-fi
+  if [[ -d "$A_ZSH_DOTFILES/custom" ]]; then
+    for script in $A_ZSH_DOTFILES/custom/*.zsh; do
+      source "$script"
+    done
+  fi
+}
+
+source $A_ZSH_DOTFILES/../dmitmel-dotfiles/zsh/zshrc
