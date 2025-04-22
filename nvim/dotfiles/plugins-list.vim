@@ -43,14 +43,6 @@
 \ }
 " }}}
 
-" coc {{{
-  if g:dotfiles_build_coc_from_source
-    Plug 'https://github.com/UltiRequiem/coc-cl', {
-\     'do': 'yarn install --frozen-lockfile && yarn build'
-\   }
-  endif
-" }}}
-
 " mini.nvim {{{
   Plug 'echasnovski/mini.pairs'
 " }}}

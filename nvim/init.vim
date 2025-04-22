@@ -8,10 +8,10 @@ let g:dotfiles_rainbow_indent_opacity = 0.5
 " Inhibited plugins {{{
   " I'd love to use dotfiles#plugman#inhibit in my plugins-list.vim but by that
   " point it is already too late.
-  let g:dotfiles#plugman#inhibited_plugins = {}
+  let g:dotplug#inhibited_plugins = {}
 
   " Does not do its job properly anymore, I'm afraid.
-  let g:dotfiles#plugman#inhibited_plugins["delimitMate"] = 1
+  let g:dotplug#inhibited_plugins["delimitMate"] = 1
 " }}}
 
 source <sfile>:p:h/../dmitmel-dotfiles/nvim/init.vim
