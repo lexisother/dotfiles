@@ -3,7 +3,6 @@
 # Get this file's current directory and source Dima's zshrc from there
 A_ZSH_DOTFILES="$( dirname "$( readlink -f "$0" )" )"
 
-# Options for Dima's config
 DOTFILES_SYNC_LAST_WORKING_DIR=1
 
 _dotfiles_customizations() {
@@ -15,6 +14,10 @@ _dotfiles_customizations() {
     for script in $A_ZSH_DOTFILES/custom/*.zsh; do
       source "$script"
     done
+  fi
+
+  if [[ -n "$DOTFILES_SYNC_LAST_WORKING_DIR" ]]; then
+    sync_working_dir_load
   fi
 }
 

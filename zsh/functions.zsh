@@ -27,3 +27,26 @@ function recover-env() {
   cp "$backup_dir/$project.env" "$PWD/.env"
   echo "$project.env restored to .env"
 }
+
+# https://github.com/dmitmel/dotfiles/blob/a174ef1556c440ca8cb7ee23bf1731290b9d22ce/zsh/functions.zsh#L114-L134
+SYNC_WORKING_DIR_STORAGE="${ZSH_CACHE_DIR}/last-working-dir"
+
+autoload -Uz add-zsh-hook
+add-zsh-hook chpwd sync_working_dir_chpwd_hook
+sync_working_dir_chpwd_hook() {
+  if [[ "$ZSH_SUBSHELL" == 0 ]]; then
+    sync_working_dir_save
+  fi
+}
+
+sync_working_dir_save() {
+  pwd >| "$SYNC_WORKING_DIR_STORAGE"
+}
+
+sync_working_dir_load() {
+  local dir
+  if dir="$(<"$SYNC_WORKING_DIR_STORAGE")" 2>/dev/null && [[ -n "$dir" ]]; then
+    cd -- "$dir"
+  fi
+}
+alias cds="sync_working_dir_load"
