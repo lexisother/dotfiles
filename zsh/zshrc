@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# enable KSH globbing, which gives access to things such as !(1|2|3)
+setopt ksh_glob
+
 # Get this file's current directory and source Dima's zshrc from there
 A_ZSH_DOTFILES="$( dirname "$( readlink -f "$0" )" )"
 
