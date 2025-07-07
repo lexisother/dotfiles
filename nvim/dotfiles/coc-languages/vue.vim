@@ -1,2 +1,1 @@
-call extend(g:dotfiles_coc_extensions, {'@yaegassy/coc-volar': 1})
-call extend(g:dotfiles_coc_filetypes, {'vue': 1})
+call dotutils#add_unique(g:coc_global_extensions, '@yaegassy/coc-volar')

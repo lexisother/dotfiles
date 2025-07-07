@@ -5,7 +5,7 @@ local theme = require'dotfiles.colorscheme'
 -- https://ptb.discord.com/channels/382339402338402315/382339402338402317/885864846892077086
 local function get_color(index)
   local color = theme.base16_colors[index]
-  return color.gui
+  return string.format('%06x', color.gui)
 end
 
 -- Structure of themes is as follows:

@@ -1,2 +1,1 @@
-call extend(g:dotfiles_coc_extensions, {'coc-go': 1})
-call extend(g:dotfiles_coc_filetypes, {'go': 1})
+call dotutils#add_unique(g:coc_global_extensions, 'coc-go')
