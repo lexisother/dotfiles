@@ -2,8 +2,8 @@
 
 ---@type dotfiles.lsp.Config
 return {
-  cmd = { "intelephense", "--stdio" },
-  filetypes = { "php" },
-
-  settings_sections = { "intelephense" },
+  cmd = { 'phpactor', 'language-server' },
+  filetypes = { 'php' },
+  root_markers = { '.git', 'composer.json', '.phpactor.json', '.phpactor.yml' },
+  workspace_required = true,
 }
