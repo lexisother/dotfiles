@@ -1,7 +1,9 @@
+exe dotplug#define_plug_here()
+
 " UI {{{
   if has('nvim')
-    Plug 'romgrk/barbar.nvim'
-    Plug 'hoob3rt/lualine.nvim'
+    " Plug 'romgrk/barbar.nvim'
+    " Plug 'hoob3rt/lualine.nvim'
   endif
 " }}}
 
@@ -26,23 +28,12 @@
 
 " Language specific {{{
   Plug 'lervag/vimtex'
-  Plug 'stevearc/vim-arduino'
   Plug 'm-pilia/vim-mediawiki'
   Plug 'aquach/vim-mediawiki-editor'
-  Plug 'noahfrederick/vim-laravel', {
-\   'requires': [
-\     'noahfrederick/vim-composer',
-\     'tpope/vim-projectionist',
-\     'tpope/vim-dispatch'
-\   ]
-\ }
-" }}}
-
-" mini.nvim {{{
-  Plug 'echasnovski/mini.pairs'
 " }}}
 
 " Misc {{{
-  Plug 'junegunn/vader.vim'
   Plug 'wakatime/vim-wakatime'
 " }}}
+
+delcommand Plug

@@ -1,3 +1,6 @@
+local ok, lualine = pcall(require, 'lualine')
+if not ok then return end;
+
 local dotfiles_gruv = require'lualine.themes.gruvbox'
 local theme = require'dotfiles.colorscheme'
 
@@ -36,7 +39,7 @@ local function showBoard()
   end
 end
 
-require('lualine').setup{
+lualine.setup{
   options = {
     theme = dotfiles_gruv
   }
