@@ -37,6 +37,8 @@ packages = {
       { "tailscale" => { restart_service: :changed } }
     ],
     system: [
+      "cmark",
+      "cmark-gfm",
       "gcc@12",
       "mkcert",
       "nss",
