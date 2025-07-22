@@ -34,7 +34,6 @@ packages = {
   brews: { # {{{
     services: [
       { "syncthing" => { restart_service: :changed } },
-      { "tailscale" => { restart_service: :changed } }
     ],
     system: [
       "cmark",
@@ -62,7 +61,8 @@ packages = {
       "php",
       "poetry",
       "ruby",
-      "stylua"
+      "stylua",
+      "uv"
     ],
     tools: [
       "act",
@@ -70,10 +70,12 @@ packages = {
       "bear",
       "coder",
       "croc",
-      "ddev/ddev/ddev",
+      "ddev",
+      "dua-cli",
       "eza",
       "ffmpeg",
       "fzf",
+      "gawk",
       "gh",
       "git-crypt",
       "git-delta",
@@ -86,6 +88,7 @@ packages = {
       "pandoc",
       "ripgrep",
       "sops",
+      "tealdeer",
       "wget"
     ]
   }, # }}}
@@ -95,14 +98,15 @@ packages = {
     "alt-tab",
     "android-studio",
     "browserstacklocal",
+    "crossover",
     "db-browser-for-sqlite",
     "discord",
     "discord@ptb",
     "firefox@developer-edition",
-    "fleet",
     "font-ibm-plex",
     "font-jetbrains-mono-nerd-font",
     "goland",
+    "google-chrome",
     "imhex",
     "insomnia",
     "intellij-idea",
@@ -113,6 +117,7 @@ packages = {
     "obsidian",
     "orbstack",
     "phpstorm",
+    "prismlauncher",
     "qbittorrent",
     "raycast",
     "rectangle",
@@ -122,7 +127,8 @@ packages = {
     "shottr",
     "slack",
     "spotify",
-    "steam",
+    # "steam",
+    "tailscale",
     "thunderbird",
     "transmit",
     "visual-studio-code"
