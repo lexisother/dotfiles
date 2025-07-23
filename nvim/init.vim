@@ -1,26 +1,21 @@
+" Add my paths to the rtp
 let g:a_nvim_dotfiles_dir = expand('<sfile>:p:h')
 let g:a_dotfiles_dir = expand('<sfile>:p:h:h')
 let &runtimepath = g:a_nvim_dotfiles_dir.','.&runtimepath.','.g:a_nvim_dotfiles_dir.'/after'
 
+" dotfiles configuration
 let g:vim_ide = 2
 let g:dotfiles_rainbow_indent_opacity = 0.5
+let g:dotfiles_treesitter_highlighting = v:true
+let g:dotfiles_highlight_url_under_cursor = v:true
 
-" Inhibited plugins {{{
-  " I'd love to use dotfiles#plugman#inhibit in my plugins-list.vim but by that
-  " point it is already too late.
-  let g:dotplug#inhibited_plugins = {}
-
-  " Does not do its job properly anymore, I'm afraid.
-  let g:dotplug#inhibited_plugins["delimitMate"] = 1
-" }}}
+" Disables Airline's tabline to use barbar instead
+let g:airline#extensions#tabline#enabled = 1
 
 source <sfile>:p:h/../dmitmel-dotfiles/nvim/init.vim
 
-if has('nvim')
-  luafile <sfile>:p:h/init.lua
-else
-  set termguicolors
-endif
+" Doesn't hurt to try and set again.
+set termguicolors
 
 " Arrow key fix kanged from <https://vim.fandom.com/wiki/Fix_arrow_keys_that_display_A_B_C_D_on_remote_shell#Solution_21> {{{
   if exists("g:HELP_MY_ARROW_KEYS_ARE_BROKEN")

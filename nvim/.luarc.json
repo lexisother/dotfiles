@@ -3,7 +3,5 @@
   "runtime.version": "LuaJIT",
   "diagnostics.globals": ["vim"],
   "diagnostics.disable": ["empty-block", "duplicate-set-field", "inject-field"],
-  "diagnostics.unusedLocalExclude": ["_*"],
-  "workspace.checkThirdParty": false,
-  "workspace.library": ["${3rd}/luassert/library", "${3rd}/luv/library", "./dmitmel-dotfiles/nvim"]
+  "diagnostics.unusedLocalExclude": ["_*"]
 }

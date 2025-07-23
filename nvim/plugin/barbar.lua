@@ -1,14 +1,16 @@
 local ok, barbar = pcall(require, 'barbar')
-if not ok then return end;
+if not ok then return end
 
-barbar.setup {
+---@diagnostic disable: missing-fields
+
+barbar.setup({
   icons = {
     buffer_index = true,
     filetype = {
-      enabled = true
-    }
-  }
-}
+      enabled = true,
+    },
+  },
+}) --[[@as barbar.config.options]]
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
