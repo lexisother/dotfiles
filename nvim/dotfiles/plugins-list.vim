@@ -3,7 +3,7 @@ exe dotplug#define_plug_here()
 " UI {{{
   if has('nvim')
     Plug 'romgrk/barbar.nvim'
-    " Plug 'hoob3rt/lualine.nvim'
+    Plug 'hoob3rt/lualine.nvim'
   endif
 " }}}
 

@@ -21,6 +21,11 @@ nnoremap <C-t> :NERDTreeToggle<CR>
   endif
 " }}}
 
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 " Copy to clipboard register and paste from clipboard register {{{
   " Taken from https://unix.stackexchange.com/a/23437
   nnoremap <C-y> "+y

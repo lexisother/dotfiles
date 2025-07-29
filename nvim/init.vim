@@ -9,10 +9,11 @@ let g:dotfiles_rainbow_indent_opacity = 0.5
 let g:dotfiles_treesitter_highlighting = v:true
 let g:dotfiles_highlight_url_under_cursor = v:true
 
-" Disables Airline's tabline to use barbar instead
-let g:airline#extensions#tabline#enabled = 1
-
 source <sfile>:p:h/../dmitmel-dotfiles/nvim/init.vim
+
+" Disables Airline's tabline to use barbar instead
+" let g:airline#extensions#tabline#enabled = 0
+" let g:airline#extensions#tabline#show_tabs = 0
 
 " Doesn't hurt to try and set again.
 set termguicolors
