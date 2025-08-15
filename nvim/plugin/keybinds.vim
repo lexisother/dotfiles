@@ -1,5 +1,7 @@
 nnoremap <C-t> :NERDTreeToggle<CR>
 
+inoremap <M-BS> <C-\><C-O>db
+
 " Completion {{{
   if (dotplug#has('coc.nvim') && g:vim_ide == 1)
     function! s:check_back_space() abort
