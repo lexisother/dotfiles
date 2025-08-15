@@ -29,7 +29,8 @@ end
 packages = {
   taps: [
     "ddev/ddev",
-    "the-wineskin-project/wineskin"
+    "the-wineskin-project/wineskin",
+    "isen-ng/dotnet-sdk-versions"
   ],
   brews: { # {{{
     services: [
@@ -51,7 +52,6 @@ packages = {
       "dhall",
       "dhall-json",
       "dhall-lsp-server",
-      "dotnet",
       "go",
       "gradle",
       "kotlin",
@@ -62,7 +62,8 @@ packages = {
       "poetry",
       "ruby",
       "stylua",
-      "uv"
+      "uv",
+      "yaml-language-server"
     ],
     tools: [
       "act",
@@ -99,6 +100,8 @@ packages = {
     "android-studio",
     "browserstacklocal",
     "crossover",
+    "dotnet-sdk9",
+    "dotnet-sdk8",
     "db-browser-for-sqlite",
     "discord",
     "discord@ptb",
@@ -128,7 +131,7 @@ packages = {
     "slack",
     "spotify",
     # "steam",
-    "tailscale",
+    "tailscale-app",
     "thunderbird",
     "transmit",
     "visual-studio-code"
