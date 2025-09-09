@@ -5,4 +5,5 @@ require('dotfiles.lsp_ignition').enable({
   'php',
   'biome',
   'vimls',
+  'bashls',
 })
