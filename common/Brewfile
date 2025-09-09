@@ -88,6 +88,8 @@ packages = {
       "neovim",
       "pandoc",
       "ripgrep",
+      "shellcheck",
+      "shfmt",
       "sops",
       "tealdeer",
       "wget"
