@@ -9,7 +9,7 @@ A_ZSH_DOTFILES="$( dirname "$( readlink -f "$0" )" )"
 DOTFILES_SYNC_LAST_WORKING_DIR=1
 
 _dotfiles_customizations() {
-  for script in functions plugins aliases; do
+  for script in functions plugins aliases zle; do
     source "$A_ZSH_DOTFILES/$script.zsh"
   done
 
