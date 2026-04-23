@@ -30,6 +30,7 @@ exe dotplug#define_plug_here()
   Plug 'lervag/vimtex'
   Plug 'm-pilia/vim-mediawiki'
   Plug 'aquach/vim-mediawiki-editor'
+  Plug 'davidmh/mdx.nvim'
 " }}}
 
 " Misc {{{

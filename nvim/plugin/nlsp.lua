@@ -6,4 +6,5 @@ require('dotfiles.lsp_ignition').enable({
   'biome',
   'vimls',
   'bashls',
+  'mdx_analyzer'
 })
